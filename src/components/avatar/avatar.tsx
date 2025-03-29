@@ -1,13 +1,42 @@
 
 import { ReactNode, useState } from 'react';
+import { cn } from '../../lib/utils';
+import { avatarVariants } from './Avatarvarient';
+
+export interface AvatarProps {
+  src?: string;
+  alt?: string;
+  isBordered?: boolean;
+  color?:
+    | 'base'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'danger';
+  size?:  | 'sm' | 'base' | 'md' | 'lg' | 'xl';
+  radius?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full' | 'default';
+  name?: string;
+  icon?: ReactNode;
+  imageRadius?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full' | 'default';
+  fallback?: ReactNode;
+  isDisabled?: boolean;
+  isFocusable?: boolean;
+  showFallback?: boolean;
+  imgComponent?: ReactNode;
+  imgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
+  isBorderAnimation?: boolean; // Determines if border animation is enabled
+}
+
 
 const Avatar = ({
   src,
   alt,
   isBordered = true,
-  color = 'default',
+  color = 'base',
   size = 'base',
   radius = 'full',
+  imageRadius = 'full',
   name,
   icon,
   fallback,
@@ -16,118 +45,97 @@ const Avatar = ({
   showFallback = false,
   imgComponent,
   imgProps,
-}: {
-  src?: string;
-  alt?: string;
-  isBordered?: boolean;
-  color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'danger';
-  size?: number | 'sm' | 'base' | 'md' | 'lg' | 'xl';
-  radius?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
-  name?: string;
-  icon?: ReactNode;
-  fallback?: ReactNode;
-  isDisabled?: boolean;
-  isFocusable?: boolean;
-  showFallback?: boolean;
-  imgComponent?: ReactNode;
-  imgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
-  isBorderAnimation?: boolean;
-}) => {
+  isBorderAnimation = false,
+}: AvatarProps) => {
   const [imageLoaded, setImageLoaded] = useState(true);
 
   const handleImageError = () => {
     setImageLoaded(false);
   };
 
-  const getSizeClass = () => {
-    if (typeof size === 'number') return `w-[${size}px] h-[${size}px]`;
-    switch (size) {
-      case 'sm':
-        return 'w-8 h-8';
-      case 'base':
-        return 'w-10 h-10';
-      case 'md':
-        return 'w-12 h-12';
-      case 'lg':
-        return 'w-16 h-16';
-      case 'xl':
-        return 'w-20 h-20';
-      default:
-        return 'w-12 h-12';
-    }
-  };
+  // const getSizeClass = () => {
+  //   if (typeof size === 'number') return `w-[${size}px] h-[${size}px]`;
+  //   switch (size) {
+  //     case 'sm':
+  //       return 'w-8 h-8';
+  //     case 'base':
+  //       return 'w-10 h-10';
+  //     case 'md':
+  //       return 'w-12 h-12';
+  //     case 'lg':
+  //       return 'w-16 h-16';
+  //     case 'xl':
+  //       return 'w-20 h-20';
+  //     default:
+  //       return 'w-12 h-12';
+  //   }
+  // };
 
-  const getRadiusClass = () => {
-    switch (radius) {
-      case 'sm':
-        return 'rounded-md';
-      case 'md':
-        return 'rounded-lg';
-      case 'lg':
-        return 'rounded-xl';
-      case 'xl':
-        return 'rounded-2xl';
-      case '2xl':
-        return 'rounded-3xl';
-      case '3xl':
-        return 'rounded-4xl';
-      case 'full':
-        return 'rounded-full';
-      default:
-        return 'rounded-full';
-    }
-  };
-  const getImageRadiusClass = () => {
-    switch (radius) {
-      case 'sm':
-        return 'rounded-sm';
-      case 'md':
-        return 'rounded-md';
-      case 'lg':
-        return 'rounded-lg';
-      case 'xl':
-        return 'rounded-xl';
-      case '2xl':
-        return 'rounded-2xl';
-      case '3xl':
-        return 'rounded-3xl';
-      case 'full':
-        return 'rounded-full';
-      default:
-        return 'rounded-full';
-    }
-  };
+  // const getRadiusClass = () => {
+  //   switch (radius) {
+  //     case 'sm':
+  //       return 'rounded-md';
+  //     case 'md':
+  //       return 'rounded-lg';
+  //     case 'lg':
+  //       return 'rounded-xl';
+  //     case 'xl':
+  //       return 'rounded-2xl';
+  //     case '2xl':
+  //       return 'rounded-3xl';
+  //     case '3xl':
+  //       return 'rounded-4xl';
+  //     case 'full':
+  //       return 'rounded-full';
+  //     default:
+  //       return 'rounded-full';
+  //   }
+  // };
+  // const getImageRadiusClass = () => {
+  //   switch (radius) {
+  //     case 'sm':
+  //       return 'rounded-sm';
+  //     case 'md':
+  //       return 'rounded-md';
+  //     case 'lg':
+  //       return 'rounded-lg';
+  //     case 'xl':
+  //       return 'rounded-xl';
+  //     case '2xl':
+  //       return 'rounded-2xl';
+  //     case '3xl':
+  //       return 'rounded-3xl';
+  //     case 'full':
+  //       return 'rounded-full';
+  //     default:
+  //       return 'rounded-full';
+  //   }
+  // };
 
-  const getColorClass = () => {
-    switch (color) {
-      case 'primary':
-        return 'bg-blue-500 text-white';
-      case 'secondary':
-        return 'bg-gray-500 text-white';
-      case 'success':
-        return 'bg-green-500 text-white';
-      case 'warning':
-        return 'bg-yellow-500 text-black';
-      case 'danger':
-        return 'bg-red-500 text-white';
-      default:
-        return 'bg-gray-200 text-black';
-    }
-  };
+  // const getColorClass = () => {
+  //   switch (color) {
+  //     case 'primary':
+  //       return 'bg-blue-500 text-white';
+  //     case 'secondary':
+  //       return 'bg-gray-500 text-white';
+  //     case 'success':
+  //       return 'bg-green-500 text-white';
+  //     case 'warning':
+  //       return 'bg-yellow-500 text-black';
+  //     case 'danger':
+  //       return 'bg-red-500 text-white';
+  //     default:
+  //       return 'bg-gray-200 text-black';
+  //   }
+  // };
 
-  const containerClasses = `
-    ${getSizeClass()}
-    ${getRadiusClass()}
-    ${isBordered ? 'border-2 border-gray-700 p-[2px]' : ''}
-    ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}
-    overflow-hidden aspect-square relative
-  `;
+  // const containerClasses = `
+  //   ${getSizeClass()}
+  //   ${getRadiusClass()}
+  //   ${isBordered ? 'border-2 border-gray-700 p-[2px]' : ''}
+  //   ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}
+  //   overflow-hidden aspect-square relative
+  // `;
 
   const renderContent = () => {
     if (src && imageLoaded && !showFallback) {
@@ -136,7 +144,14 @@ const Avatar = ({
           src={src}
           alt={alt || name}
           onError={handleImageError}
-          className={`${getImageRadiusClass()} h-full w-full object-cover`}
+          className={
+            cn(
+              avatarVariants({
+                imageRadius
+              }),
+              ` h-full w-full object-cover`
+            )
+          }
           {...imgProps}
         />
       );
@@ -161,7 +176,14 @@ const Avatar = ({
     if (name) {
       return (
         <div
-          className={`flex h-full w-full items-center justify-center ${getRadiusClass()} ${getColorClass()}`}
+          className={ cn(
+            avatarVariants({
+              color,
+              radius
+            }),
+            `flex h-full w-full items-center justify-center `
+          )
+          }
         >
           {name.charAt(0).toUpperCase()}
         </div>
@@ -170,7 +192,10 @@ const Avatar = ({
 
     return (
       <div
-        className={`flex h-full w-full items-center justify-center ${getRadiusClass()} ${getColorClass()}`}
+        className={cn( avatarVariants({
+          color,
+          radius
+        }),`flex h-full w-full items-center justify-center `)}
       >
         <svg
           aria-hidden="true"
@@ -195,7 +220,19 @@ const Avatar = ({
 
   return (
     <div
-      className={containerClasses}
+      className={cn(
+        // containerClasses,
+        avatarVariants({
+          color,
+          size,
+          radius,
+          isDisabled,
+        isBordered,
+        isBorderAnimation,
+        }),
+        
+        
+      )}
       tabIndex={isFocusable && !isDisabled ? 0 : -1}
       role="img"
       aria-label={alt || name || 'Avatar'}
