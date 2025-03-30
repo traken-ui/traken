@@ -1,28 +1,58 @@
 {
-  "name": "trakenui",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@traken/test",
+  "version": "0.0.3",
   "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+  "access": "public"
+},
+  "license": "MIT",
   
+  "bin": {
+    "traken-setup-tailwind": "scripts/setup-tailwind.js"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "build": "tsc && rollup -c --bundleConfigAsCjs",
+    "tailwind": "tailwindcss -i ./src/index.css -o ./src/style.css",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+
+  "keywords": [
+    "traken",
+    "ui",
+    "react",
+    "components",
+    "tailwindcss"
+  ],
+  "author": "Traken-ui",
   "dependencies": {
-    "class-variance-authority": "^0.7.1",
+    "@rollup/plugin-typescript": "^12.1.2",
     "clsx": "^2.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.4.0",
     "tailwind-merge": "^3.0.2"
   },
+  "peerDependencies": {
+    "class-variance-authority": "^0.7.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.6",
     "@eslint/js": "^9.21.0",
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "@storybook/addon-essentials": "^8.6.11",
     "@storybook/addon-onboarding": "^8.6.11",
     "@storybook/blocks": "^8.6.11",
@@ -35,6 +65,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/browser": "^3.0.9",
     "@vitest/coverage-v8": "^3.0.9",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
@@ -42,6 +73,14 @@
     "globals": "^15.15.0",
     "install": "^0.13.0",
     "playwright": "^1.51.1",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "rollup": "^4.38.0",
+    "rollup-plugin-dts": "^6.2.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.36.0",
     "storybook": "^8.6.11",
     "tailwindcss": "^3.4.17",
     "tsup": "^8.4.0",

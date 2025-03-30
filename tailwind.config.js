@@ -10,7 +10,7 @@ export default {
     './dist/**/*.{js,jsx,ts,tsx}',
 
   
-    './node_modules/@traken-ui/react/**/*.{js,ts,jsx,tsx,mdx}'],
+    './node_modules/@traken/test/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {},
   },
