@@ -1,7 +1,26 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "target": "ES6", // Or ES2017 or ESNext
+    "module": "ESNext",
+    "lib": ["dom", "es2017"], // Updated lib to match target
+    "allowJs": true,
+    "jsx": "react",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "class-variance-authority": ["node_modules/class-variance-authority"]
+    },
+    "typeRoots": ["node_modules/@types", "./types"]
+  },
+  "include": ["src", "src/plugins"],
+  "exclude": ["node_modules", "dist", "**/*.css"]
 }
