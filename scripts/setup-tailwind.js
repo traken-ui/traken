@@ -11,9 +11,9 @@ const projectRoot = process.cwd();
 const tailwindConfigJsPath = path.join(projectRoot, 'tailwind.config.js');
 const tailwindConfigTsPath = path.join(projectRoot, 'tailwind.config.ts');
 const CONTENT_PATH_TO_ADD =
-  './node_modules/@traken/test/**/*.{js,ts,jsx,tsx,mdx}';
+  './node_modules/@traken/react/**/*.{js,ts,jsx,tsx,mdx}';
 
-const pluginPath = '@traken/test';
+const pluginPath = '@traken/react';
 
 const pluginImport = `import {trakenPlugin} from '${pluginPath}';`;
 
