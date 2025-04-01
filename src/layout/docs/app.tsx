@@ -1,6 +1,7 @@
+import React from 'react';
 import Avatar from '@/components/avatar/avatar';
 import Button from '@/components/button/Button';
-import React from 'react';
+import Loader from '@/components/loader/Loader';
 export default function App() {
   return (
     <div className="flex min-h-screen w-screen flex-col gap-y-8 bg-zinc-500 p-5">
@@ -77,6 +78,23 @@ export default function App() {
             </Button>
           </div>
         </div>
+
+        <div className="flex justify-center items-center h-screen">
+        {/* <Loader size="sm" color="primary" type="spinner" /> */}
+        {/* <Loader size="lg" color="primary" type="dots" /> */}
+
+<div
+  className="p-3 animate-spin drop-shadow-2xl bg-gradient-to-bl from-pink-400 via-purple-400 to-indigo-700 md:w-48 md:h-48 h-32 w-32 aspect-square rounded-full"
+>
+  <div
+    className="rounded-full h-full w-full bg-slate-100 dark:bg-zinc-500 background-blur-md"
+  ></div>
+</div>
+
+
+
+    </div>
+
       </div>
     )
 }
