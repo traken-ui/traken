@@ -2,6 +2,7 @@
 import { ReactNode, useState } from 'react';
 import { cn } from '../../lib/utils';
 import { avatarVariants } from './Avatarvarient';
+import React from 'react';
 
 export interface AvatarProps {
   src?: string;
