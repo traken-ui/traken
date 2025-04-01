@@ -1,6 +1,6 @@
 import React from 'react';
 import { skeletonVariants } from './skeleteonVariants';
-import { cn } from '@/lib/utils'; 
+import { cn } from '../../lib/utils'; 
 
 export interface SkeletonProps {
   children?: React.ReactNode;
