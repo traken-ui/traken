@@ -2,7 +2,6 @@
 
 # Run tests before committing
 npm test
-
 # Run linting before committing
 npm run lint
 # Run build before committing
