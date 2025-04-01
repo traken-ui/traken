@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 
 # Run tests before committing
 npm test
