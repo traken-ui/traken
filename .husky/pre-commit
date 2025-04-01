@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 
 # # Run tests before committing
 # npm test
@@ -7,3 +7,7 @@
 # npm run lint
 # # Run build before committing
 # npm run build
+# # Run linting before committing
+# npm run lint
+# Run build before committing
+npm run build
