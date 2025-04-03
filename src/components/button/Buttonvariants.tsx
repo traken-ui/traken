@@ -9,8 +9,8 @@ export const buttonVariants = cva(
         primary: 'bg-primary text-white hover:bg-primary-600',
         secondary: 'bg-secondary text-white hover:bg-secondary-600',
         success: 'bg-success text-white hover:bg-success-600',
-        warning: 'bg-warning text-white hover:bg-warning-600',
-        danger: 'bg-danger text-white hover:bg-danger-600',
+        warning: 'bg-warning text-black hover:bg-warning-600',
+        danger: 'bg-danger text-black hover:bg-danger-600',
       },
       size: {
         sm: 'px-3 py-1 h-fit text-sm',

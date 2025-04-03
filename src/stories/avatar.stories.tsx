@@ -16,6 +16,10 @@ const meta: Meta<StoryProps> = {
             control: "text",
             description: "Source URL of the image",
         },
+        name: {
+            control: "text",
+            description: "Name of the user",
+        },
         alt: {
             control: "text",
             description: "Alternative text for the image",
@@ -39,10 +43,7 @@ const meta: Meta<StoryProps> = {
             options: ["sm", "md", "lg", "xl", "2xl", "3xl", "full"],
             description: "Border radius of the avatar",
         },
-        name: {
-            control: "text",
-            description: "Name of the user",
-        },
+   
         icon: {
             control: "text",
             description: "Icon to be displayed inside the avatar",
