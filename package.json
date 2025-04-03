@@ -83,6 +83,7 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@storybook/addon-essentials": "^8.6.11",
+    "@storybook/addon-interactions": "^8.6.11",
     "@storybook/addon-onboarding": "^8.6.11",
     "@storybook/blocks": "^8.6.11",
     "@storybook/experimental-addon-test": "^8.6.11",

@@ -2,7 +2,6 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import path from 'path';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
-
 const config: StorybookConfig = {
   "stories": [
     "../src/**/*.mdx",
@@ -12,7 +11,7 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-onboarding",
     "@chromatic-com/storybook",
-    "@storybook/experimental-addon-test"
+    "@storybook/addon-interactions"
   ],
   "framework": {
     "name": "@storybook/react-vite",
