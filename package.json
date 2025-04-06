@@ -8,9 +8,7 @@
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
+
   "bin": {
     "traken-setup-tailwind": "scripts/setup-tailwind.js"
   },
