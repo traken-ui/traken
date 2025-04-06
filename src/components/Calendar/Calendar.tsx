@@ -17,7 +17,7 @@ interface CalendarProps {
 
 const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
 
-export const Calendar: React.FC<CalendarProps> = ({
+export  const Calendar: React.FC<CalendarProps> = ({
   selectedDates = [],
   onDateSelect,
   disablePast = false,

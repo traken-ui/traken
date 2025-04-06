@@ -1,14 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ComponentProps } from "react";
 import Avatar from "../components/avatar/avatar";
-
 import React from "react";
-
-import { fn } from "@storybook/test";
 
 type StoryProps = ComponentProps<typeof Avatar>
 
 const meta: Meta<StoryProps> = {
+    title: "Components/Avatar", 
     component: Avatar,
     tags: ["autodocs"],
     argTypes: {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { cn } from "../../lib/utils";
-import { toggleVariants } from "./Switchvariants.tsx";
+import { toggleVariants } from "./Switchvariants";
 
 interface ToggleSwitchProps {
   checked?: boolean;
