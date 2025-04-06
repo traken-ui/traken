@@ -1,4 +1,5 @@
 import React from "react";
+import { breadcrumbItemVariants } from "./BreadcrumbVariants";
 
 export interface BreadcrumbItemType {
   label: string;
@@ -26,15 +27,16 @@ export const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
           <a
             href={item.href}
             onClick={item.onClick}
-            className="text-blue-600 hover:underline"
-            aria-current={item.isCurrent ? "page" : undefined}
+            className={breadcrumbItemVariants({ active: false })}
           >
+            {item.icon && <span className="mr-1">{item.icon}</span>}
             {item.label}
           </a>
-          <span className="mx-2">{separator}</span>
+          <span className="mx-1 text-gray-400">{separator}</span>
         </>
       ) : (
-        <span className="text-gray-500" aria-current="page">
+        <span className={breadcrumbItemVariants({ active: true })}>
+          {item.icon && <span className="mr-1">{item.icon}</span>}
           {item.label}
         </span>
       )}

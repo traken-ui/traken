@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { BreadcrumbProps } from "./Breadcrumb.types";
 import { BreadcrumbItem } from "./BreadcrumbItem";
+import { breadcrumbVariants } from "./BreadcrumbVariants";
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   items,
-  separator = ">",
+  separator = "/",
   maxItems = 4,
   collapseAfter = 1,
   className = "",
+  color = "default",
+  size = "md",
 }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -24,7 +27,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
 
   return (
     <nav aria-label="Breadcrumb" className={className}>
-      <ol className="flex flex-wrap items-center gap-2">
+      <ol className={breadcrumbVariants({ color, size })}>
         {visibleItems.map((item, index) => (
           <BreadcrumbItem
             key={index}

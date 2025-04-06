@@ -10,13 +10,26 @@ const meta: Meta<typeof Breadcrumb> = {
   argTypes: {
     separator: {
       control: { type: 'select' },
-      options: ['>', '/', '→', '•'],
+      options: ['/', '>', '→', '•'],
+      description: 'Separator between items',
+    },
+    color: {
+      control: { type: 'select' },
+      options: ['default', 'primary', 'dark'],
+      description: 'Color scheme',
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['sm', 'md', 'lg'],
+      description: 'Text size',
     },
     maxItems: {
       control: { type: 'number', min: 2, max: 10 },
+      description: 'Max items before truncation',
     },
     collapseAfter: {
       control: { type: 'number', min: 1, max: 5 },
+      description: 'Items to show before truncation',
     },
   },
 };
@@ -25,9 +38,9 @@ export default meta;
 
 type Story = StoryObj<typeof Breadcrumb>;
 
-// Mock items for stories
+// Mock items
 const baseItems = [
-  { label: 'Home', href: '/' },
+  { label: 'Home', href: '/', icon: <HomeIcon /> },
   { label: 'Products', href: '/products' },
   { label: 'Electronics', href: '/products/electronics' },
   { label: 'Smartphones', isCurrent: true },
@@ -47,61 +60,59 @@ const longPathItems = [
 export const Default: Story = {
   args: {
     items: baseItems,
-    separator: '>',
-  },
-};
-
-export const SlashSeparator: Story = {
-  args: {
-    items: baseItems,
     separator: '/',
+    color: 'default',
+    size: 'md',
   },
-  name: 'With Slash (/) Separator',
 };
 
-export const ArrowSeparator: Story = {
+export const PrimaryColor: Story = {
   args: {
-    items: baseItems,
-    separator: '→',
+    ...Default.args,
+    color: 'primary',
   },
-  name: 'With Arrow (→) Separator',
+  name: 'Primary Color Scheme',
 };
 
-export const WithIcons: Story = {
+export const SmallSize: Story = {
   args: {
-    items: [
-      { label: 'Home', href: '/', icon: <HomeIcon /> },
-      { label: 'Dashboard', href: '/dashboard' },
-      { label: 'Settings', isCurrent: true, icon: <SlashIcon /> },
-    ],
+    ...Default.args,
+    size: 'sm',
+  },
+  name: 'Small Size',
+};
+
+export const WithCustomSeparator: Story = {
+  args: {
+    ...Default.args,
     separator: <ChevronRightIcon />,
   },
-  name: 'With Icons',
+  name: 'Custom Separator (Icon)',
 };
 
 export const Truncated: Story = {
   args: {
     items: longPathItems,
+    separator: '→',
     maxItems: 4,
     collapseAfter: 1,
   },
-  name: 'Truncated (Collapsed)',
+  name: 'Truncated with Ellipsis',
 };
 
-export const Expanded: Story = {
+export const InteractiveExpand: Story = {
   args: {
     items: longPathItems,
     maxItems: 4,
     collapseAfter: 1,
   },
   render: (args) => {
-    // Simulate expanded state
-    const [expanded, setExpanded] = React.useState(true);
+    const [expanded, setExpanded] = React.useState(false);
     return (
       <div>
         <button 
           onClick={() => setExpanded(!expanded)}
-          className="mb-4 text-sm text-blue-600"
+          className="mb-4 text-sm text-blue-600 hover:underline"
         >
           {expanded ? 'Collapse' : 'Expand'} Breadcrumb
         </button>
@@ -110,18 +121,4 @@ export const Expanded: Story = {
     );
   },
   name: 'Expandable (Interactive)',
-};
-
-export const Responsive: Story = {
-  args: {
-    items: longPathItems,
-    maxItems: 3,
-    collapseAfter: 1,
-  },
-  parameters: {
-    viewport: {
-      defaultViewport: 'mobile1',
-    },
-  },
-  name: 'Responsive (Mobile)',
 };
