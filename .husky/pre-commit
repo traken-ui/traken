@@ -5,5 +5,5 @@
 
 # # Run linting before committing
 # npm run lint
-# # Run build before committing
-# npm run build
+# Run build before committing
+npm run build
