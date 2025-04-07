@@ -1,8 +1,7 @@
-
-import { ReactNode, useState } from 'react';
-import { cn } from '../../lib/utils';
-import { avatarVariants } from './Avatarvarient';
-import React from 'react';
+import { ReactNode, useState } from "react";
+import { cn } from "../../lib/utils";
+import { avatarVariants } from "./Avatarvarient";
+import React from "react";
 
 export interface AvatarProps {
     src?: string;
@@ -37,7 +36,6 @@ export interface AvatarProps {
     imgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
     isBorderAnimation?: boolean; // Determines if border animation is enabled
 }
-
 
 const Avatar = ({
   src,

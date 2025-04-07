@@ -1,7 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import path from 'path';
-import { mergeConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
+
 
 const config: StorybookConfig = {
   "stories": [
@@ -21,11 +20,6 @@ const config: StorybookConfig = {
   docs:{
     autodocs: "tag"
   },
-  async viteFinal(config) {
-    return mergeConfig(config, {
-      plugins: [tsconfigPaths()]
-    });
-  }
   // viteFinal: async (config) => {
   //   config.plugins?.push(
   //       // Add any custom Vite plugins here
