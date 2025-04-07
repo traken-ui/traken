@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import type { Meta, StoryObj } from "@storybook/react";
 import { ComponentProps } from "react";
 import ToggleSwitch from "../components/switch/Switch";
@@ -52,12 +53,12 @@ export const Default: StoryObj<StoryProps> = {
   render: (args) => {
     const [isOn, setIsOn] = useState(args.checked);
 
-    const handleToggle = () => {
-      setIsOn((prev) => !prev);
-      if (args.onChange) {
-        args.onChange(!isOn);
-      }
-    };
+    // const handleToggle = () => {
+    //   setIsOn((prev) => !prev);
+    //   if (args.onChange) {
+    //     args.onChange(!isOn);
+    //   }
+    // };
 
     return (
       <ToggleSwitch

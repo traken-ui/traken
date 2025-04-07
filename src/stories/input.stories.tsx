@@ -4,7 +4,7 @@ import Input from "../components/input/input";
 
 import React from "react";
 
-import { fn } from "@storybook/test";
+
 
 type StoryProps = ComponentProps<typeof Input>;
 
