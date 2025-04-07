@@ -50,7 +50,7 @@ export const cardVariants = cva(
 );
 
 export const cardHeaderVariants = cva(
-    "flex items-center justify-between w-full p-3 border-b border-gray-200",
+    "flex items-center justify-between w-full p-3 ",
     {
         variants: {
             color: {
@@ -69,7 +69,6 @@ export const cardHeaderVariants = cva(
         defaultVariants: {
             color: "light",
         },
-
     },
 );
 
@@ -94,7 +93,7 @@ export const cardBodyVariants = cva("flex-1 p-3", {
 });
 
 export const cardFooterVariants = cva(
-    "flex items-center justify-between w-full p-3 border-t border-gray-200",
+    "flex items-center justify-between w-full p-3",
     {
         variants: {
             color: {

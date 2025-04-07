@@ -14,10 +14,7 @@ const meta: Meta<typeof Card> = {
     argTypes: {
         color: {
             control: "select",
-            options: [
-                "light",
-                "dark",
-            ],
+            options: ["light", "dark"],
             description: "Color of the card",
         },
         size: {
@@ -52,9 +49,9 @@ export const Default: Story = {
     },
     render: (args) => (
         <Card {...args}>
-            <CardHeader color={args.color} className={args.className}>Card Header</CardHeader>
-            <CardBody color={args.color} className={args.className}>Card Body</CardBody>
-            <CardFooter color={args.color} className={args.className}>Card Footer</CardFooter>
+            <CardHeader {...args}>Card Header</CardHeader>
+            <CardBody {...args}>Card Body</CardBody>
+            <CardFooter {...args}>Card Footer</CardFooter>
         </Card>
     ),
 };
