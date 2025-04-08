@@ -11,7 +11,7 @@ interface CardProps {
     children: React.ReactNode;
     color?: "light" | "dark";
     size?: "sm" | "md" | "lg" | "xl";
-    radius?: "none" | "sm" | "md" | "lg";
+    radius?: "none" | "sm" | "md" | "lg" | "xl";
     shadow?: "none" | "sm" | "md" | "lg" | "xl";
     className?: string;
 }
