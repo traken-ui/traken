@@ -44,7 +44,6 @@ const Avatar = ({
   color = 'base',
   size = 'base',
   radius = 'full',
-  imageRadius = 'full',
   name,
   icon,
   fallback,
