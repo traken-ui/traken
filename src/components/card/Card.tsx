@@ -11,7 +11,7 @@ interface CardProps {
     children: React.ReactNode;
     color?: "light" | "dark";
     size?: "sm" | "md" | "lg" | "xl";
-    radius?: "none" | "sm" | "md" | "lg";
+    radius?: "none" | "sm" | "md" | "lg" | "xl";
     shadow?: "none" | "sm" | "md" | "lg" | "xl";
     className?: string;
 }
@@ -22,10 +22,15 @@ function Card({
     size = "md",
     radius = "md",
     shadow = "md",
-    className,
+    className = "",
 }: CardProps) {
     return (
-        <div className={cn(cardVariants({ color, size, radius, shadow  }), className)}>
+        <div
+            className={cn(
+                cardVariants({ color, size, radius, shadow }),
+                className,
+            )}
+        >
             {children}
         </div>
     );
@@ -37,8 +42,12 @@ interface CardHeaderProps {
     className?: string;
 }
 
-function CardHeader({ children, color = "light", className}: CardHeaderProps) {
-    return <div className={cn(cardHeaderVariants({ color }), className)}>{children}</div>;
+function CardHeader({ children, color = "light", className }: CardHeaderProps) {
+    return (
+        <div className={cn(cardHeaderVariants({ color }), className)}>
+            {children}
+        </div>
+    );
 }
 
 interface CardBodyProps {
@@ -47,8 +56,12 @@ interface CardBodyProps {
     className?: string;
 }
 
-function CardBody({ children, color = "light",className }: CardBodyProps) {
-    return <div className={cn(cardBodyVariants({ color }), className)}>{children}</div>;
+function CardBody({ children, color = "light", className }: CardBodyProps) {
+    return (
+        <div className={cn(cardBodyVariants({ color }), className)}>
+            {children}
+        </div>
+    );
 }
 
 interface CardFooterProps {
@@ -58,7 +71,11 @@ interface CardFooterProps {
 }
 
 function CardFooter({ children, color = "light", className }: CardFooterProps) {
-    return <div className={cn(cardFooterVariants({ color }), className)}>{children}</div>;
+    return (
+        <div className={cn(cardFooterVariants({ color }), className)}>
+            {children}
+        </div>
+    );
 }
 
 export { Card, CardHeader, CardBody, CardFooter };

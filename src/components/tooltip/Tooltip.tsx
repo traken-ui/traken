@@ -52,7 +52,7 @@ const Tooltip = ({
 
     return (
         <div
-            className={cn("relative mt-20 flex items-center justify-center")}
+            className={cn("relative h-fit w-fit")}
             onMouseEnter={showTooltip}
             onMouseLeave={hideTooltip}
         >
@@ -69,8 +69,8 @@ const Tooltip = ({
                             radius,
                             shadow,
                             variant,
-                            className,
                         }),
+                        className,
                     )}
                     style={{
                         transition: "opacity 0.5s ease, transform 0.5s ease",
