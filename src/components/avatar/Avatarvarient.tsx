@@ -8,6 +8,7 @@ export const avatarVariants = cva(
             color:{
                 base:'bg-base text-white',
                 primary:'bg-primary text-white ',
+                ghost:'bg-transparent text-white',
                 secondary:'bg-secondary text-white',
                 success:'bg-success text-white',
                 warning:'bg-warning text-white ',
@@ -41,7 +42,7 @@ export const avatarVariants = cva(
                 default:'rounded-full'
             },
             isBordered:{
-                true:'border-2 border-gray-700 p-[2px]',
+                true:'border-2 border-base p-[2px]',
                 false:''
             },
             isDisabled:{
