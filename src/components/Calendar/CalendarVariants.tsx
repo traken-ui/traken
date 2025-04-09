@@ -1,4 +1,3 @@
-// calendarVariants.ts
 import { cva } from "class-variance-authority";
 
 export const calendarVariants = cva("w-full max-w-md bg-gray-900 text-white p-4 rounded-lg shadow-lg", {
@@ -33,34 +32,29 @@ export const calendarHeaderVariants = cva("flex justify-between items-center mb-
 });
 
 export const calendarDayVariants = cva(
-  "p-2 rounded-full transition-colors duration-150",
+  "w-9 h-9 flex items-center justify-center rounded-full transition-colors duration-150",
   {
     variants: {
       isToday: {
         true: "border border-blue-400"
       },
       isSelected: {
-        true: "bg-blue-500 text-white"
+        true: "bg-blue-600 text-white" 
       },
       isDisabled: {
         true: "text-gray-600 cursor-not-allowed"
       },
-      isInRange: {
-        true: "bg-blue-300 text-black"
+      isPreviewRange: {
+        true: "bg-blue-900/30"
       },
-      isRangeEdge: {
-        true: "bg-blue-600 text-white"
+      isPreviewEdge: {
+        true: "border border-dashed border-blue-400" 
       }
     },
     compoundVariants: [
       {
         isDisabled: true,
         class: "hover:bg-transparent"
-      },
-      {
-        isInRange: true,
-        isRangeEdge: false,
-        class: "rounded-none"
       }
     ]
   }
