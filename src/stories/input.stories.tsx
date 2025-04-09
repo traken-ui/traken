@@ -4,17 +4,19 @@ import Input from "../components/input/input";
 
 import React from "react";
 
-
-
 type StoryProps = ComponentProps<typeof Input>;
 
 const meta: Meta<StoryProps> = {
+    title: "Components/Input",
     component: Input,
     tags: ["autodocs"],
     argTypes: {
-        alt: {
-            control: "text",
-            description: "Alternative text for the image",
+        label:{
+            control:"text"
+        },
+        variant: {
+            control: "select",
+            options: ["flat", "faded", "bordered", "underlined"],
         },
         color: {
             control: "select",
@@ -26,16 +28,20 @@ const meta: Meta<StoryProps> = {
                 "warning",
                 "danger",
             ],
-            description: "Color of the avatar",
         },
         size: {
             control: "select",
-            options: ["sm", "base", "md", "lg", "xl"],
-            description: "Size of the avatar",
+            options: ["base","sm", "md", "lg", "xl"],
         },
-        name: {
-            control: "text",
-            description: "Name of the user",
+        rounded: {
+            control: "select",
+            options: ["sm", "md", "lg", "xl", "full"],
+        },
+        placeholder:{
+            control:"text"
+        },
+        id:{
+            control:"text"
         },
     },
 };
@@ -44,8 +50,13 @@ export default meta;
 
 export const Default: StoryObj<StoryProps> = {
     args: {
+        variant:"flat",
         color: "base",
-        placeholder: "John Doe",
+        size:"base",
+        rounded:"sm",
+        placeholder:"",
+        disabled:false,
+        fullWidth:false,
     },
     render: (args: any) => <Input {...args} />,
 };
