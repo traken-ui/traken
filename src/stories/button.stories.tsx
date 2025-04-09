@@ -2,14 +2,13 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ComponentProps } from "react";
 import Button from "../components/button/Button";
 import React from "react";
-import { fn } from "@storybook/test";
 
 type StoryProps = ComponentProps<typeof Button> & {
     buttonText: string;
 };
 
 const meta: Meta<StoryProps> = {
-    title: "Components/Button", 
+    title: "Components/Button",
     component: Button,
     tags: ["autodocs"],
     argTypes: {
@@ -19,7 +18,14 @@ const meta: Meta<StoryProps> = {
         },
         color: {
             control: "select",
-            options: ["base", "primary", "secondary", "success", "warning", "danger"],
+            options: [
+                "base",
+                "primary",
+                "secondary",
+                "success",
+                "warning",
+                "danger",
+            ],
             description: "Color of the button",
         },
         size: {
@@ -37,18 +43,19 @@ const meta: Meta<StoryProps> = {
             options: ["solid", "outline", "ghost", "flat"],
             description: "Variant of the button",
         },
-    }
-}
+    },
+    
+};
 
 export default meta;
 
 export const Default: StoryObj<StoryProps> = {
     args: {
         buttonText: "Default Button",
-        color: "base",
+        color: "secondary",
         size: "md",
         rounded: "md",
-        variant: "solid",
+        variant: "outline",
     },
     render: (args) => <Button {...args}>{args.buttonText}</Button>,
 };

@@ -1,10 +1,8 @@
 import trakenPlugin from "./plugin/traken-plugin";
 import Button from './components/button/Button';
-import Avatar from "./components/avatar/avatar";
-
+// import Avatart from './components/Avatar/Avatar';
 
 export {
     Button,
-    Avatar,
     trakenPlugin,
 }
