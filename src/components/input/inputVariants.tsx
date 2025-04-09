@@ -34,7 +34,7 @@ export const inputVariants = cva(
                 flat: "",
                 faded: "border",
                 bordered: "border bg-",
-                underlined: "border-b-2 rounded-none bg-",
+                underlined: "border-b-2 rounded-none",
             },
             fullWidth: {
                 true: "w-full",
