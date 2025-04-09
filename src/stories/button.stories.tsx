@@ -44,7 +44,7 @@ export default meta;
 
 export const Default: StoryObj<StoryProps> = {
     args: {
-        buttonText: "Default Button",
+        buttonText: "Default Butto",
         color: "base",
         size: "md",
         rounded: "md",
