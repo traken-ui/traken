@@ -92,6 +92,7 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
         ? (isRangeStart || isRangeEnd)
         : selectedDates.some(d => d.toDateString() === date.toDateString()); 
         return (
+        <div key={day} className="flex justify-center">
           <button
             key={day}
             className={cn(
@@ -102,7 +103,7 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
                 isPreviewRange: isInPreviewRange,
                 isPreviewEdge,
               }),
-              "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+              "w-9 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
               {
                 "bg-blue-600 text-white": isSelected,
                 "bg-blue-500/30": isInRange && !isSelected,
@@ -116,6 +117,7 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
           >
             {day + 1}
           </button>
+        </div>
         );
       })}
     </>

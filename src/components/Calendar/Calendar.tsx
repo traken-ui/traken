@@ -73,8 +73,8 @@ export const Calendar: React.FC<CalendarProps> = ({
 
       <div className="grid grid-cols-7 gap-1 text-center text-sm mb-2">
         {daysOfWeek.map((day, index) => (
-          <div key={`${day}-${index}`} className="font-bold text-gray-400 py-1">
-            {day}
+          <div key={`${day}-${index}`} className="font-bold text-gray-400 py-1 flex justify-center">
+            <div className="w-9">{day}</div>
           </div>
         ))}
         <CalendarGrid

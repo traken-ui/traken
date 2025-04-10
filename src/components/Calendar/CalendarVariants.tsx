@@ -32,7 +32,7 @@ export const calendarHeaderVariants = cva("flex justify-between items-center mb-
 });
 
 export const calendarDayVariants = cva(
-  "w-9 h-9 flex items-center justify-center rounded-full transition-colors duration-150",
+  "h-9 flex items-center justify-center rounded-full transition-colors duration-150",
   {
     variants: {
       isToday: {
