@@ -49,7 +49,10 @@ export const calendarDayVariants = cva(
       },
       isPreviewEdge: {
         true: "border border-dashed border-blue-400" 
-      }
+      },
+      isTodayHighlighted: {
+        true: 'border border-blue-400 animate-pulse'
+      }  
     },
     compoundVariants: [
       {

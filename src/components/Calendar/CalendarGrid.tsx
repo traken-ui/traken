@@ -90,7 +90,11 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
         
         const isSelected = variant === "range-picker" 
         ? (isRangeStart || isRangeEnd)
-        : selectedDates.some(d => d.toDateString() === date.toDateString()); 
+        : selectedDates.some(d => d.toDateString() === date.toDateString()) ||
+          date.toDateString() === today.toDateString(); //today ko baad me new Date() kr dena nhi chala to 
+          
+        const isTodayHighlighted = isToday && selectedDates.length === 0; // Highlight today if no date is selected
+        
         return (
         <div key={day} className="flex justify-center">
           <button
@@ -102,6 +106,7 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
                 isDisabled,
                 isPreviewRange: isInPreviewRange,
                 isPreviewEdge,
+                isTodayHighlighted,
               }),
               "w-9 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
               {

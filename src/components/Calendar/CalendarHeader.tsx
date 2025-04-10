@@ -2,6 +2,7 @@ import React from "react";
 import { calendarHeaderVariants } from "./CalendarVariants";
 import { MonthPicker } from "./MonthPicker";
 import { YearPicker } from "./YearPicker";
+import { cn } from "@/lib/utils";
 
 interface CalendarHeaderProps {
   currentMonth: Date;
@@ -11,6 +12,7 @@ interface CalendarHeaderProps {
   onPrevMonth: () => void;
   onNextMonth: () => void;
   onToday: () => void;
+  todayClicked?: boolean;
 }
 
 export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
@@ -21,11 +23,17 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   onPrevMonth,
   onNextMonth,
   onToday,
+  todayClicked,
 }) => (
   <div className={calendarHeaderVariants({ variant: variant === "range-picker" ? "default" : variant })}>
     <button
       onClick={onToday}
-      className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
+      className={cn( 
+        "px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all",
+        {
+          "scale-105 ring-2 ring-blue-400": todayClicked,
+        }
+      )}
     >
       Today
     </button>
