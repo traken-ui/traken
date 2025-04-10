@@ -58,5 +58,5 @@ export const Default: StoryObj<StoryProps> = {
         disabled:false,
         fullWidth:false,
     },
-    render: (args: any) => <Input {...args} />,
+    render: (args) => <Input {...args} />,
 };

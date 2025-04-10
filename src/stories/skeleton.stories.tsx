@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ComponentProps } from "react";
-import Skeleton from "../components/skeleton/Skeleton";
-import { skeletonVariants } from "../components/skeleton/SkeletonVariants"; // Fixed typo
+import Skeleton from "../components/skeleton/skeleton";
 import React from "react";
 
 type StoryProps = ComponentProps<typeof Skeleton> & {
