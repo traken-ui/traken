@@ -1,7 +1,7 @@
 import React from 'react';
 import { StoryObj,Meta } from '@storybook/react/*';
 import { Accordion,AccordionItem } from '../components/accordion/Accordion';
-import { accordionVariants } from '../components/accordion/AccordionVariants';
+
 import { ComponentProps } from 'react';
 
 type StoryProps = ComponentProps<typeof Accordion> & {

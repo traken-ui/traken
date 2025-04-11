@@ -1,26 +1,26 @@
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import typescript from 'rollup-plugin-typescript2';
-import postcss from 'rollup-plugin-postcss';
-import json from '@rollup/plugin-json';
-import pkg from './package.json' assert { type: 'json' };
-import { dts } from 'rollup-plugin-dts';
-import tailwindcss from 'tailwindcss';
-import autoprefixer from 'autoprefixer';
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import typescript from "rollup-plugin-typescript2";
+import postcss from "rollup-plugin-postcss";
+import json from "@rollup/plugin-json";
+import pkg from "./package.json" assert { type: "json" };
+import { dts } from "rollup-plugin-dts";
+import autoprefixer from "autoprefixer";
+
 
 export default [
   {
-    input: 'src/index.tsx',
+    input: "src/index.tsx",
     output: [
       {
         file: pkg.main,
-        format: 'cjs',
+        format: "cjs",
         sourcemap: true,
       },
       {
         file: pkg.module,
-        format: 'esm',
+        format: "esm",
         sourcemap: true,
       },
     ],
@@ -30,27 +30,31 @@ export default [
       commonjs(),
       typescript({
         useTsconfigDeclarationDir: true,
-        tsconfig: './tsconfig.json',
+        tsconfig: "./tsconfig.json",
         clean: true,
-        include: ['src/**/*.ts', 'src/**/*.tsx'],
+        include: ["src/**/*.ts", "src/**/*.tsx"],
         tsconfigOverride: {
           compilerOptions: {
             declaration: true,
-            declarationDir: 'dist/types',
+            declarationDir: "dist/types",
           },
         },
       }),
       postcss({
-        plugins: [tailwindcss('./tailwind.config.js'), autoprefixer()],
-
+        plugins: [ autoprefixer()],
+        extract: "dist/styles.css",
+        minimize: true,
+        include: "**/*.css",
       }),
       json(),
     ],
-    external: ['react', 'react-dom', 'class-variance-authority'],
+    external: ["react", "react-dom", "class-variance-authority"],
   },
   {
-    input: 'dist/types/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    input: "dist/types/index.d.ts",
+    output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
+    // Explicitly exclude non-TypeScript files from resolution
+    external: (id) => /\.css$/.test(id), // Exclude CSS files from resolution
   },
 ];

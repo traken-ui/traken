@@ -2,7 +2,7 @@ import React from "react";
 import { calendarHeaderVariants } from "./CalendarVariants";
 import { MonthPicker } from "./MonthPicker";
 import { YearPicker } from "./YearPicker";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 interface CalendarHeaderProps {
   currentMonth: Date;

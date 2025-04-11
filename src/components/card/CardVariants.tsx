@@ -5,7 +5,7 @@ export const cardVariants = cva(
     {
         variants: {
             color: {
-                light: "bg-white text-gray-900",
+                light: "bg-base-100 text-gray-900",
                 dark: "bg-gray-800 text-white",
             },
             size: {
