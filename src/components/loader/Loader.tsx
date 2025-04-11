@@ -1,7 +1,8 @@
 import React from 'react';
 import { cn } from '../../lib/utils';
 import { loaderVariants } from './LoaderVariants';
-import './styles/Loader.module.css'
+// Import as a module with default export
+import styles from './styles/Loader.module.css';
 
 export interface LoaderProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
@@ -14,13 +15,13 @@ const Loader: React.FC<LoaderProps> = ({ size = 'md', color = 'base', type = 'sp
   return (
     <div className={cn(loaderVariants({ size, color, type }), className)}>
       {type === 'dots' ? (
-        <div className="dot-spinner">
+        <div className={styles['dot-spinner']}>
           {[...Array(8)].map((_, i) => (
-            <div key={i} className="dot"></div>
+            <div key={i} className={styles.dot}></div>
           ))}
         </div>
       ) : (
-        <div className="loader-spinner"></div>
+        <div className={styles['loader-spinner']}></div>
       )}
     </div>
   );

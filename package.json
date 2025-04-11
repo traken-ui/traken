@@ -1,6 +1,6 @@
 {
-  "name": "@complib/react",
-  "version": "0.0.3",
+  "name": "@minato-sama-ui/react",
+  "version": "0.0.1",
   "private": false,
   "type": "module",
   "main": "dist/cjs/index.js",
@@ -9,14 +9,13 @@
   "files": [
     "dist"
   ],
-
   "bin": {
     "traken-setup-tailwind": "scripts/setup-tailwind.js"
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && rollup -c --bundleConfigAsCjs",
-    "tailwind": "tailwindcss -i ./src/index.css -o ./src/style.css",
+    "build": "tsc && rollup -c --bundleConfigAsCjs && tailwind",
+    "tailwind": "npx @tailwindcss/cli -i ./src/index.css -o ./src/traken-theme.css",
     "lint": "eslint ./src/ --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "eslint ./src/ --ext .ts,.tsx,.js,.jsx --fix",
     "preview": "vite preview",
@@ -43,20 +42,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/traken-ui/traken.git"
+    "url": "git+https://github.com/"
   },
   "license": "MIT",
   "author": "Traken-ui",
   "bugs": {
     "url": "https://github.com/tremorlabs/tremor-npm/issues"
   },
-  "keywords": [
-    "traken",
-    "ui",
-    "react",
-    "components",
-    "tailwindcss"
-  ],
+  "keywords": [],
   "dependencies": {
     "@rollup/plugin-typescript": "^12.1.2",
     "@tailwindcss/cli": "^4.1.3",

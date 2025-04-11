@@ -148,7 +148,8 @@ function Modal({
                             animation,
                         }),
                         variantClasses[variant],
-                        "animate-fade-in-up max-h-[90vh] overflow-auto",
+                        
+                        `animate-fade-in-up max-h-[90vh] overflow-auto`,
                     )}
                 >
                     {children}
