@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 // import { ComponentProps } from "react";
 import { useState } from "react";
-import { Calendar } from "src/components/Calendar/Calendar";
+import { Calendar } from "../components/Calendar/Calendar";
 
 const meta: Meta<typeof Calendar> = {
   title: "Components/Calendar",

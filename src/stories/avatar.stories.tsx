@@ -1,20 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ComponentProps } from "react";
-import Avatar from "../components/avatar/avatar";
-
+import Avatar from "../components/Avatar/Avatar";
 import React from "react";
-
-import { fn } from "@storybook/test";
 
 type StoryProps = ComponentProps<typeof Avatar>
 
 const meta: Meta<StoryProps> = {
+    title: "Components/Avatar", 
     component: Avatar,
     tags: ["autodocs"],
     argTypes: {
         src: {
             control: "text",
             description: "Source URL of the image",
+        },
+        name: {
+            control: "text",
+            description: "Name of the user",
         },
         alt: {
             control: "text",
@@ -39,10 +41,7 @@ const meta: Meta<StoryProps> = {
             options: ["sm", "md", "lg", "xl", "2xl", "3xl", "full"],
             description: "Border radius of the avatar",
         },
-        name: {
-            control: "text",
-            description: "Name of the user",
-        },
+   
         icon: {
             control: "text",
             description: "Icon to be displayed inside the avatar",
