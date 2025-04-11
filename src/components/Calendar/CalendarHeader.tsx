@@ -39,7 +39,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     </button>
 
     {variant === "month-year-picker" ? (
-      <div className="flex gap-2">
+      <div className="flex gap-2 select-none">
         <MonthPicker month={currentMonth.getMonth()} onChange={onMonthChange} />
         <YearPicker year={currentMonth.getFullYear()} onChange={onYearChange} />
       </div>
