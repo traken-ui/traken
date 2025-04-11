@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "src/lib/utils";
+import { cn } from "@/lib/utils";
 import { calendarDayVariants } from "./CalendarVariants";
 
 interface CalendarGridProps {
@@ -90,8 +90,13 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
         
         const isSelected = variant === "range-picker" 
         ? (isRangeStart || isRangeEnd)
-        : selectedDates.some(d => d.toDateString() === date.toDateString()); 
+        : selectedDates.some(d => d.toDateString() === date.toDateString()) ||
+          date.toDateString() === today.toDateString(); //today ko baad me new Date() kr dena nhi chala to 
+          
+        const isTodayHighlighted = isToday && selectedDates.length === 0; // Highlight today if no date is selected
+        
         return (
+        <div key={day} className="flex justify-center">
           <button
             key={day}
             className={cn(
@@ -101,8 +106,9 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
                 isDisabled,
                 isPreviewRange: isInPreviewRange,
                 isPreviewEdge,
+                isTodayHighlighted,
               }),
-              "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+              "w-9 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
               {
                 "bg-blue-600 text-white": isSelected,
                 "bg-blue-500/30": isInRange && !isSelected,
@@ -116,6 +122,7 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
           >
             {day + 1}
           </button>
+        </div>
         );
       })}
     </>
