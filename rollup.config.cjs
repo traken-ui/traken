@@ -2,12 +2,13 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
-import postcss from "rollup-plugin-postcss";
+
 import json from "@rollup/plugin-json";
 import pkg from "./package.json" assert { type: "json" };
 import { dts } from "rollup-plugin-dts";
 import autoprefixer from "autoprefixer";
-
+import tailwindcss from "tailwindcss";
+import postcss from "rollup-plugin-postcss";
 
 export default [
   {
@@ -42,10 +43,11 @@ export default [
       }),
       postcss({
         plugins: [ autoprefixer()],
-        extract: "dist/styles.css",
+        sourceMap: true,
+        extract: true,
         minimize: true,
-        include: "**/*.css",
       }),
+
       json(),
     ],
     external: ["react", "react-dom", "class-variance-authority"],
@@ -54,7 +56,5 @@ export default [
     input: "dist/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
-    // Explicitly exclude non-TypeScript files from resolution
-    external: (id) => /\.css$/.test(id), // Exclude CSS files from resolution
   },
 ];
