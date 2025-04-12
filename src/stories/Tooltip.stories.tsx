@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import Tooltip from "../components/tooltip/Tooltip";
 import { ComponentProps } from "react";
 import React from "react";
+import Button from "../components/button/Button";
 
 type StoryProps = ComponentProps<typeof Tooltip> & {
     tooltipText: string;
@@ -74,9 +75,9 @@ export const Default: Story = {
         <div className="wrapper flex h-screen w-full items-center justify-center">
             {/* This div is a wrapper so you can simply remove it */}
             <Tooltip {...args}>
-                <button className="cursor-pointer rounded-md bg-blue-500 px-6 py-2 font-semibold text-white">
+                <Button className="cursor-pointer rounded-md bg-blue-500 px-6 py-2 font-semibold text-white">
                     Hover Me
-                </button>
+                </Button>
             </Tooltip>
         </div>
     ),

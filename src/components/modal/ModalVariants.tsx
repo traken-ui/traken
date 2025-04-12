@@ -5,14 +5,14 @@ export const modalVariants = cva(
     {
         variants: {
             color: {
-                base: "bg-white text-gray-900",
-                primary: "bg-blue-600 text-white",
-                secondary: "bg-gray-600 text-white",
-                success: "bg-green-600 text-white",
-                warning: "bg-yellow-500 text-black",
-                danger: "bg-red-600 text-white",
-                subtle: "bg-gray-100 text-gray-800",
-                transparent: "bg-transparent backdrop-blur-sm text-white",
+                base: "bg-base-100 text-gray-900",
+                primary: "bg-primary-600 text-gray-100",
+                secondary: "bg-secondary-600 text-gray-100",
+                success: "bg-success-600 text-gray-100",
+                warning: "bg-warning-600 text-black",
+                danger: "bg-danger-600 text-gray-100",
+                subtle: "bg-base-100 text-gray-800",
+                transparent: "bg-transparent backdrop-blur-sm text-gray-100",
             },
             size: {
                 xs: "max-w-xs px-4 py-2",
@@ -71,7 +71,7 @@ export const modalVariants = cva(
             {
                 color: "primary",
                 border: "thin",
-                className: "border-blue-300 bg-blue-100/50 text-blue-900", 
+                className: "border-blue-300 bg-blue-100/50 text-blue-900",
             },
 
             {
@@ -109,6 +109,12 @@ export const modalVariants = cva(
                 size: ["lg", "xl", "2xl", "3xl"],
                 className: "divide-y divide-gray-100",
             },
+
+            {
+                color: "transparent",
+                overlayColor: ["blur", "light", "none"],
+                className: "text-gray-800"
+            }
         ],
         defaultVariants: {
             color: "base",
