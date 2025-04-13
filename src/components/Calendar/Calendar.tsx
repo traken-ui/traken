@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
+
 import { calendarVariants } from "./CalendarVariants";
 import { CalendarHeader } from "./CalendarHeader";
 import { CalendarGrid } from "./CalendarGrid";

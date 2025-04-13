@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 interface YearPickerProps {
   year: number;
   onChange: (year: number) => void;
+
   open:boolean,
   onOpenChange:(open:boolean)=>void
 }
@@ -19,6 +20,7 @@ export const YearPicker: React.FC<YearPickerProps> = ({
 
   useEffect(() => {
     if (open && dropdownRef.current) {
+
       // Scroll to the current year (2025 or selected year)
       const currentYearIndex = years.indexOf(year);
       if (currentYearIndex !== -1) {
@@ -26,17 +28,21 @@ export const YearPicker: React.FC<YearPickerProps> = ({
         dropdownRef.current.scrollTop = currentYearIndex * itemHeight - itemHeight * 2; // Center the year
       }
     }
+
   }, [open, year, years]);
+
 
   return (
     <div className="relative w-24">
       <div
         className="flex items-center justify-between p-2 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer hover:border-blue-400 transition-colors"
+
         onClick={() => onOpenChange(!open)}
       >
         <span className="text-white">{year}</span>
         <svg
           className={`w-5 h-5 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`}
+
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
@@ -48,7 +54,9 @@ export const YearPicker: React.FC<YearPickerProps> = ({
           />
         </svg>
       </div>
+
       {open && (
+
         <div
           ref={dropdownRef}
           className="absolute z-10 w-full mt-1 bg-gray-800 border border-gray-700 rounded-lg shadow-lg max-h-60 overflow-auto scrollbar-hide"
@@ -61,7 +69,9 @@ export const YearPicker: React.FC<YearPickerProps> = ({
               }`}
               onClick={() => {
                 onChange(yearOption);
+
                 onOpenChange(false);
+
               }}
             >
               {yearOption}

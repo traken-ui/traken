@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ComponentProps } from "react";
+
 import Avatar from "../components/Avatar/Avatar";
+
 import React from "react";
 
 type StoryProps = ComponentProps<typeof Avatar>
