@@ -3,16 +3,6 @@ import { ReactElement, ReactNode } from "react";
 import { cn } from "../../lib/utils";
 import { tabsVariants } from "./Tabsvariants";
 
-
-const colorStyles: Record<string, string> = {
-  default: "bg-gray-200",
-  primary: "bg-blue-500",
-  secondary: "bg-green-500",
-  success: "bg-teal-500",
-  warning: "bg-yellow-500",
-  danger: "bg-red-500",
-};
-
 export interface TabsProps<T extends { key: React.Key; title: string }> {
   variant?: "solid" | "bordered" | "light" | "underlined";
   color?: "default" | "primary" | "secondary" | "success" | "warning" | "danger";
@@ -75,7 +65,7 @@ export function Tabs<T extends { key: React.Key; title: string }>({
             className={cn(
               tabsVariants({ variant, color, size, radius, fullWidth }),
               activeKey === item.key
-                ? `${colorStyles[color]} text-white opacity-100` 
+                ? `${[color]} text-white opacity-100` 
                 : "bg-transparent text-black opacity-70", 
               classNames?.tab
             )}

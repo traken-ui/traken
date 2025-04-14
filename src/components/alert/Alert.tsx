@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { cn } from '../../lib/utils';
 import { alertVariants } from './Alertvariant';
 
@@ -21,16 +21,6 @@ const Alert: React.FC<AlertProps> = ({
     size,
     variant
 }) => {
-    const [isVisible, setIsVisible] = useState(false); 
-
-    const showAlert = () => setIsVisible(true); 
-
-    if (!isVisible) return (
-        <button onClick={showAlert} className="btn btn-primary bg-red-500 p-2 rounded text-white ">
-            Show Alert
-        </button>
-    ); 
-
     return (
         <div
             className={cn(
@@ -40,14 +30,9 @@ const Alert: React.FC<AlertProps> = ({
             )}
         >
             <span className="flex-grow w-96">{children}</span>
-            <button
-                className=" text-2xl ml-4 pt-0 text-gray-900 hover:text-black "
-                onClick={() => setIsVisible(false)}
-            >
-                &times;
-            </button>
         </div>
     );
 };
 
 export default Alert;
+

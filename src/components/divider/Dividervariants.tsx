@@ -3,9 +3,9 @@ import { cva } from "class-variance-authority";
 export const dividerVariants = cva("bg-gray-300 border", {
     variants: {
         color: {
-            default: "bg-gray-300",
-            primary: "bg-primary-500",
-            secondary: "bg-secondary-500",
+            default: "bg-base",
+            primary: "bg-primary",
+            secondary: "bg-secondary",
             success: "bg-success-500",
             warning: "bg-warning-500",
             danger: "bg-danger-500",

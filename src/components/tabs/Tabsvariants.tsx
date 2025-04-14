@@ -11,12 +11,12 @@ export const tabsVariants = cva(
         underlined: ' rounded-none',
       },
       color: {
-        default: 'text-default',
+        default: 'bg-base',
         primary: 'bg-primary',
-        secondary: 'text-secondary',
-        success: 'text-success',
-        warning: 'text-warning',
-        danger: 'text-danger',
+        secondary: 'bg-secondary',
+        success: 'bg-success',
+        warning: 'bg-warning',
+        danger: 'bg-danger',
       },
       size: {
         sm: 'text-sm px-2 py-1',
