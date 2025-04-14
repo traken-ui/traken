@@ -32,7 +32,7 @@ export const dividerVariants = cva("bg-gray-300 border", {
         },
     },
     compoundVariants: [
-        { thickness: "thin", orientation: "horizontal", className: "h-0.5 w-1" },
+        { thickness: "thin", orientation: "horizontal", className: "h-0.5" },
         { thickness: "medium", orientation: "horizontal", className: "h-1" },
         { thickness: "thick", orientation: "horizontal", className: "h-2" },
 
