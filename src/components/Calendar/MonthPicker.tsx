@@ -24,12 +24,12 @@ return (
 <div className="relative w-32">
 
   <div
-  className="flex items-center justify-between p-2 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer hover:border-blue-400 transition-colors"
+  className="flex items-center justify-between p-2 bg-base-800 border border-base-700 rounded-lg cursor-pointer hover:border-blue-400 transition-colors"
   onClick={() => onOpenChange(!open)}
   >
     <span className="text-white">{months[month]}</span>
       <svg
-      className={`w-5 h-5 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`}
+      className={`w-5 h-5 text-base-400 transition-transform ${open ? "rotate-180" : ""}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
@@ -39,12 +39,11 @@ return (
   </div>
 
 {open && (
-
-    <div className="absolute z-10 w-full mt-1 bg-gray-800 border border-gray-700 rounded-lg shadow-lg max-h-60 overflow-auto scrollbar-hide">
+    <div className="absolute z-10 w-full mt-1 bg-base-800 border border-base-700 rounded-lg shadow-lg max-h-60 overflow-auto scrollbar-hide">
       {months.map((monthName, index) => (
         <div
           key={index}
-          className={`p-2 text-white cursor-pointer hover:bg-gray-700 ${month === index ? "bg-blue-600" : ""}`}
+          className={`p-2 text-white cursor-pointer hover:bg-base-700 ${month === index ? "bg-blue-600" : ""}`}
           onClick={() => {
             onChange(index);
 

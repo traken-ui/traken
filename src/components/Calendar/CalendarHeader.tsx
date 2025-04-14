@@ -3,8 +3,9 @@ import React, {useState} from "react";
 import { calendarHeaderVariants } from "./CalendarVariants";
 import { MonthPicker } from "./MonthPicker";
 import { YearPicker } from "./YearPicker";
-import { cn } from "../../lib/utils";
-
+import {cn} from '../../lib/utils'
+import Button from "../button/Button";
+import { NavigationButtons } from "./NavigationButtons";
 
 interface CalendarHeaderProps {
   currentMonth: Date;
@@ -25,8 +26,6 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   onPrevMonth,
   onNextMonth,
   onToday,
-  todayClicked,
-
 }) => {
   const [isMonthOpen, setIsMonthOpen] = useState(false)
   const [isYearOpen, setIsYearOpen] = useState(false)
@@ -39,19 +38,18 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
 
   return (
   <div className={calendarHeaderVariants({ variant: variant === "range-picker" ? "default" : variant })}>
-    <button
+    <Button
       onClick={handleTodayClick}
-
-
+      size="sm"
       className={cn( 
-        "px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all",
-        {
-          "scale-105 ring-2 ring-blue-400": todayClicked,
-        }
+        "px-3 py-1.5 bg-primary-700 text-white rounded-lg hover:bg-primary-600 transition-all",
+        // {    custom styling if needed
+        //   "ring-2 ring-primary-400": todayClicked,
+        // }
       )}
     >
       Today
-    </button>
+    </Button>
 
     {variant === "month-year-picker" ? (
 
@@ -71,25 +69,16 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
 
       </div>
     ) : (
-      <div className="flex items-center gap-2">
-        <button
-          onClick={onPrevMonth}
-          className="p-2 rounded-full hover:bg-gray-800 transition-colors"
-        >
-          ←
-        </button>
-        <span className="text-lg font-semibold">
-          {currentMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
-        </span>
-        <button
-          onClick={onNextMonth}
-          className="p-2 rounded-full hover:bg-gray-800 transition-colors"
-        >
-          →
-        </button>
-      </div>
+      <>
+    <span className="text-lg font-semibold flex-1 text-center">
+      {currentMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+    </span>
+    <NavigationButtons
+      onPrevMonth={onPrevMonth}
+      onNextMonth={onNextMonth}
+    />
+  </>
     )}
   </div>
-
-)};
-
+)
+};
