@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 import { calendarDayVariants } from "./CalendarVariants";
 
 interface CalendarGridProps {
@@ -96,7 +96,7 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
         const isTodayHighlighted = isToday && selectedDates.length === 0; // Highlight today if no date is selected
         
         return (
-        <div key={day} className="flex justify-center">
+        <div key={day} className="flex justify-center text-white ">
           <button
             key={day}
             className={cn(

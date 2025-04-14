@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 import { calendarVariants } from "./CalendarVariants";
 import { CalendarHeader } from "./CalendarHeader";
 import { CalendarGrid } from "./CalendarGrid";
@@ -11,7 +11,7 @@ interface CalendarProps {
   disableFuture?: boolean;
   className?: string;
   variant?: "default" | "month-year-picker" | "range-picker";
-  color?: "default" | "primary" | "secondary";
+  color?: "default" | "primary" | "secondary"| "success" | "warning" | "danger";
   size?: "sm" | "md" | "lg";
 }
 
@@ -90,7 +90,7 @@ export const Calendar: React.FC<CalendarProps> = ({
 
       <div className="grid grid-cols-7 gap-1 text-center text-sm mb-2">
         {daysOfWeek.map((day, index) => (
-          <div key={`${day}-${index}`} className="font-bold text-gray-400 py-1 flex justify-center">
+          <div key={`${day}-${index}`} className="font-bold text-base-50 text-default-400 py-1 flex justify-center">
             <div className="w-9">{day}</div>
           </div>
         ))}
