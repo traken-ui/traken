@@ -43,6 +43,9 @@ export default [
       }),
       postcss({
         plugins: [ autoprefixer()],
+        onExtract: (css) => {
+          css.write("dist/index.css");
+        },
         sourceMap: true,
         extract: true,
         minimize: true,
