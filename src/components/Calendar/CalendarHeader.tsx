@@ -67,7 +67,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
       </div>
     ) : (
       <>
-    <span className="text-lg font-semibold flex-1 text-center">
+    <span className="text-base-50 text-lg font-semibold flex-1 text-center">
       {currentMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
     </span>
     <NavigationButtons

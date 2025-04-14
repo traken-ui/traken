@@ -3,12 +3,12 @@ import { cva } from "class-variance-authority";
 export const calendarVariants = cva("w-full max-w-md text-black p-4 rounded-lg shadow-lg", {
   variants: {
     color: {
-      base: 'bg-base text-white hover:bg-base-600',
-        primary: 'bg-primary text-white hover:bg-primary-600',
-        secondary: 'bg-secondary text-white hover:bg-secondary-600',
-        success: 'bg-success text-white hover:bg-success-600',
-        warning: 'bg-warning text-white hover:bg-warning-600',
-        danger: 'bg-danger text-white hover:bg-danger-600',
+      default: "bg-base",
+      primary: "bg-primary",
+      secondary: "bg-secondary",
+      success: 'bg-success ',
+      warning: 'bg-warning ',
+      danger: 'bg-danger ',
     },
     size: {
       sm: "text-sm",
@@ -17,7 +17,7 @@ export const calendarVariants = cva("w-full max-w-md text-black p-4 rounded-lg s
     }
   },
   defaultVariants: {
-    color: "base",
+    color: "default",
     size: "md"
   }
 });
@@ -45,7 +45,7 @@ export const calendarDayVariants = cva(
         true: "bg-primary-600 text-white" 
       },
       isDisabled: {
-        true: "text-gray-600 cursor-not-allowed"
+        true: "text-base-400 cursor-not-allowed"
       },
       isPreviewRange: {
         true: "bg-primary-900/30"
