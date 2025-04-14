@@ -31,7 +31,7 @@ export const YearPicker: React.FC<YearPickerProps> = ({
   return (
     <div className="relative w-24">
       <div
-        className="flex items-center justify-between p-2 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer hover:border-blue-400 transition-colors"
+        className="flex items-center justify-between p-2 bg-base-600 border border-base-500 rounded-lg cursor-pointer"
         onClick={() => onOpenChange(!open)}
       >
         <span className="text-white">{year}</span>
@@ -51,13 +51,13 @@ export const YearPicker: React.FC<YearPickerProps> = ({
       {open && (
         <div
           ref={dropdownRef}
-          className="absolute z-10 w-full mt-1 bg-gray-800 border border-gray-700 rounded-lg shadow-lg max-h-60 overflow-auto scrollbar-hide"
+          className="absolute z-10 w-full mt-1 bg-base-600 border border-base-500  rounded-lg shadow-lg max-h-60 overflow-auto scrollbar-hide"
         >
           {years.map((yearOption) => (
             <div
               key={yearOption}
-              className={`p-2 text-white cursor-pointer hover:bg-gray-700 ${
-                year === yearOption ? "bg-blue-600" : ""
+              className={`p-2 text-white cursor-pointer hover:bg-base-400 ${
+                year === yearOption ? "bg-base-700" : ""
               }`}
               onClick={() => {
                 onChange(yearOption);

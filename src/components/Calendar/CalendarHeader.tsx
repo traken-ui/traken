@@ -39,9 +39,9 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   <div className={calendarHeaderVariants({ variant: variant === "range-picker" ? "default" : variant })}>
     <Button
       onClick={handleTodayClick}
-      size="sm"
+      size="md"
       className={cn( 
-        "px-3 py-1.5 bg-primary-700 text-white rounded-lg hover:bg-primary-600 transition-all",
+        "px-3 py-1.5 bg-base-600 text-white border border-base-500 rounded-lg",
         // {    custom styling if needed
         //   "ring-2 ring-primary-400": todayClicked,
         // }
