@@ -66,15 +66,15 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
         />
       </div>
     ) : (
-      <div className="flex items-center justify-between gap-2">
-        <span className="text-lg font-semibold">
-          {currentMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
-        </span>
-        <NavigationButtons
-        onPrevMonth={onPrevMonth}
-        onNextMonth={onNextMonth}
-        />
-    </div>
+      <>
+    <span className="text-lg font-semibold flex-1 text-center">
+      {currentMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+    </span>
+    <NavigationButtons
+      onPrevMonth={onPrevMonth}
+      onNextMonth={onNextMonth}
+    />
+  </>
     )}
   </div>
 )
