@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { calendarHeaderVariants } from "./CalendarVariants";
 import { MonthPicker } from "./MonthPicker";
 import { YearPicker } from "./YearPicker";
-import { cn } from "@/lib/utils";
+import {cn} from '../../lib/utils'
 import Button from "../button/Button";
 import { NavigationButtons } from "./NavigationButtons";
 
@@ -39,9 +39,9 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   <div className={calendarHeaderVariants({ variant: variant === "range-picker" ? "default" : variant })}>
     <Button
       onClick={handleTodayClick}
-      size="md"
+      size="sm"
       className={cn( 
-        "px-4 py-2 bg-primary-700 text-white rounded-lg hover:bg-primary-600 transition-all",
+        "px-3 py-1.5 bg-primary-700 text-white rounded-lg hover:bg-primary-600 transition-all",
         // {    custom styling if needed
         //   "ring-2 ring-primary-400": todayClicked,
         // }
@@ -66,10 +66,16 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
         />
       </div>
     ) : (
-      <NavigationButtons
-      onNextMonth={onNextMonth}
-      onPrevMonth={onPrevMonth}
-      />
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-lg font-semibold">
+          {currentMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+        </span>
+        <NavigationButtons
+        onPrevMonth={onPrevMonth}
+        onNextMonth={onNextMonth}
+        />
+    </div>
     )}
   </div>
-)};
+)
+};

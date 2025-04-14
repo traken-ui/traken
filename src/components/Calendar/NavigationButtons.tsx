@@ -1,10 +1,10 @@
 import React from "react";
 import Button from "../button/Button";
-import { cn } from "@/lib/utils";
+import {cn} from '../../lib/utils'
 
 interface NavigationButtonsProps {
-  onPrevMonth: () => void;
   onNextMonth: () => void;
+  onPrevMonth: () => void;
 }
 
 export const NavigationButtons: React.FC<NavigationButtonsProps> = ({
