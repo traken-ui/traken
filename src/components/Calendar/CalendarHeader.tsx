@@ -41,7 +41,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
       onClick={handleTodayClick}
       size="md"
       className={cn( 
-        "px-3 py-1.5 bg-base-600 text-white border border-base-500 rounded-lg",
+        "px-3 py-1.5 bg-primary-700 text-white border border-primary-600 rounded-lg hover:bg-primary-600 ",
         // {    custom styling if needed
         //   "ring-2 ring-primary-400": todayClicked,
         // }
