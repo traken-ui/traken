@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { cn } from "../../lib/utils";
 import { modalVariants } from "./ModalVariants";
-import "./styles/index.css"
+import styles from "./styles/index.module.css";
 
 type ModalContextType = {
     isOpen: boolean;
@@ -126,6 +126,14 @@ function Modal({
 
     if (!isOpen) return null;
 
+    const animationClass = animation === "scale" 
+        ? styles.animateScale 
+        : animation === "fade" 
+          ? styles.animateFade 
+          : animation === "slide" 
+            ? styles.animateSlideUp 
+            : "";
+
     return (
         <ModalContext.Provider
             value={{ isOpen, setIsOpen: handleOpenChange, variant }}
@@ -148,8 +156,8 @@ function Modal({
                             animation,
                         }),
                         variantClasses[variant],
-                        
-                        `animate-fade-in-up max-h-[90vh] overflow-auto`,
+                        animationClass,
+                        "max-h-[90vh] overflow-auto",
                     )}
                 >
                     {children}

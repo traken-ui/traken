@@ -5,14 +5,20 @@ export const cardVariants = cva(
     {
         variants: {
             color: {
+                base: "bg-base-100 text-gray-900",
+                primary: "bg-primary-600 text-gray-100",
+                secondary: "bg-secondary-600 text-gray-100",
+                success: "bg-success-600 text-gray-100",
+                warning: "bg-warning-600 text-black",
+                danger: "bg-danger-600 text-gray-100",
                 light: "bg-base-100 text-gray-900",
-                dark: "bg-gray-800 text-white",
+                dark: "bg-base-800 text-gray-100",
             },
             size: {
-                sm: "text-sm px-2 py-2",
-                md: "text-md px-4 py-3",
-                lg: "text-lg px-6 py-4",
-                xl: "text-xl px-8 py-5",
+                sm: "text-sm px-1 py-1",
+                md: "text-md px-2 py-1",
+                lg: "text-lg px-3 py-2",
+                xl: "text-xl px-4 py-2",
             },
             radius: {
                 none: "rounded-none",
@@ -80,7 +86,7 @@ export const cardVariants = cva(
         ],
 
         defaultVariants: {
-            color: "light",
+            color: "base",
             size: "md",
             radius: "md",
             shadow: "md",
@@ -93,8 +99,14 @@ export const cardHeaderVariants = cva(
     {
         variants: {
             color: {
-                light: "bg-white text-gray-900",
-                dark: "bg-gray-800 text-white",
+                base: "bg-base-100 text-gray-900",
+                primary: "bg-primary-600 text-gray-100",
+                secondary: "bg-secondary-600 text-gray-100",
+                success: "bg-success-600 text-gray-100",
+                warning: "bg-warning-600 text-black",
+                danger: "bg-danger-600 text-gray-100",
+                light: "bg-base-100 text-gray-900",
+                dark: "bg-base-800 text-gray-100",
             },
         },
 
@@ -114,8 +126,14 @@ export const cardHeaderVariants = cva(
 export const cardBodyVariants = cva("flex-1 p-3", {
     variants: {
         color: {
-            light: "bg-white text-gray-900",
-            dark: "bg-gray-800 text-white",
+            base: "bg-base-100 text-gray-900",
+            primary: "bg-primary-600 text-gray-100",
+            secondary: "bg-secondary-600 text-gray-100",
+            success: "bg-success-600 text-gray-100",
+            warning: "bg-warning-600 text-black",
+            danger: "bg-danger-600 text-gray-100",
+            light: "bg-base-100 text-gray-900",
+            dark: "bg-base-800 text-gray-100",
         },
     },
 
@@ -136,8 +154,14 @@ export const cardFooterVariants = cva(
     {
         variants: {
             color: {
-                light: "bg-white text-gray-900",
-                dark: "bg-gray-800 text-white",
+                base: "bg-base-100 text-gray-900",
+                primary: "bg-primary-600 text-gray-100",
+                secondary: "bg-secondary-600 text-gray-100",
+                success: "bg-success-600 text-gray-100",
+                warning: "bg-warning-600 text-black",
+                danger: "bg-danger-600 text-gray-100",
+                light: "bg-base-100 text-gray-900",
+                dark: "bg-base-800 text-gray-100",
             },
         },
 

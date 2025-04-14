@@ -15,7 +15,16 @@ const meta: Meta<typeof Card> = {
     argTypes: {
         color: {
             control: "select",
-            options: ["light", "dark"],
+            options: [
+                "base",
+                "primary",
+                "secondary",
+                "success",
+                "warning",
+                "danger",
+                "light",
+                "dark",
+            ],
             description: "Color of the card",
         },
         size: {
@@ -65,7 +74,7 @@ export const Default: Story = {
                     </p>
                 </div>
             </CardHeader>
-            <CardBody {...args}>
+            <CardBody {...args} className="border-t border-gray-400">
                 <p className="text-md opacity-90">
                     Build stunning websites effortlessly, no design skills
                     required. Create with confidence!
@@ -95,12 +104,12 @@ export const Product: Story = {
         shadow: "lg",
     },
     render: (args) => (
-        <Card {...args}>
-            <CardBody {...args}>
+        <Card {...args} className="w-96">
+            <CardBody {...args} className="flex items-center justify-center p-4 ">
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Watermelon_logo.png"
                     alt="watermelon"
-                    className="rounded-lg bg-gray-100 saturate-200 filter"
+                    className="rounded-lg bg-gray-100 saturate-200 filter w-80"
                 />
             </CardBody>
             <CardFooter
@@ -140,12 +149,12 @@ export const Profile: Story = {
                 </div>
             </CardHeader>
             <CardBody {...args} className="p-4 text-center">
-                <p className="text-sm opacity-80">
+                <p className="px-20 text-sm opacity-80">
                     Lalisa Manobal, also known as Lisa, is a member of the South
                     Korean girl group Blackpink,.
                 </p>
             </CardBody>
-            <CardFooter {...args} className="flex justify-center border-t">
+            <CardFooter {...args} className="flex justify-center border-t border-gray-500">
                 <Button color="primary">Send Message</Button>
             </CardFooter>
         </Card>

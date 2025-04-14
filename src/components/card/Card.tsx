@@ -9,7 +9,15 @@ import {
 
 interface CardProps {
     children: React.ReactNode;
-    color?: "light" | "dark";
+    color?:
+        | "base"
+        | "primary"
+        | "secondary"
+        | "success"
+        | "warning"
+        | "danger"
+        | "light"
+        | "dark";
     size?: "sm" | "md" | "lg" | "xl";
     radius?: "none" | "sm" | "md" | "lg" | "xl";
     shadow?: "none" | "sm" | "md" | "lg" | "xl";
@@ -38,7 +46,15 @@ function Card({
 
 interface CardHeaderProps {
     children: React.ReactNode;
-    color?: "light" | "dark";
+    color?:
+        | "base"
+        | "primary"
+        | "secondary"
+        | "success"
+        | "warning"
+        | "danger"
+        | "light"
+        | "dark";
     className?: string;
 }
 
@@ -52,7 +68,15 @@ function CardHeader({ children, color = "light", className }: CardHeaderProps) {
 
 interface CardBodyProps {
     children: React.ReactNode;
-    color?: "light" | "dark";
+    color?:
+        | "base"
+        | "primary"
+        | "secondary"
+        | "success"
+        | "warning"
+        | "danger"
+        | "light"
+        | "dark";
     className?: string;
 }
 
@@ -66,7 +90,15 @@ function CardBody({ children, color = "light", className }: CardBodyProps) {
 
 interface CardFooterProps {
     children: React.ReactNode;
-    color?: "light" | "dark";
+    color?:
+        | "base"
+        | "primary"
+        | "secondary"
+        | "success"
+        | "warning"
+        | "danger"
+        | "light"
+        | "dark";
     className?: string;
 }
 
