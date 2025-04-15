@@ -15,10 +15,14 @@ export const cardVariants = cva(
                 dark: "bg-base-800 text-gray-100",
             },
             size: {
-                sm: "text-sm px-1 py-1",
-                md: "text-md px-2 py-1",
-                lg: "text-lg px-3 py-2",
-                xl: "text-xl px-4 py-2",
+                xs: "max-w-xs px-4 py-2",
+                sm: "max-w-sm px-6 py-3",
+                md: "max-w-md px-8 py-3",
+                lg: "max-w-lg px-10 py-4",
+                xl: "max-w-xl px-12 py-4",
+                "2xl": "max-w-2xl px-14 py-4",
+                "3xl": "max-w-3xl px-16 py-6",
+                full: "max-w-full px-10 py-10",
             },
             radius: {
                 none: "rounded-none",
@@ -38,7 +42,7 @@ export const cardVariants = cva(
 
         compoundVariants: [
             {
-                color: ["light", "dark"],
+                color: ["base", "primary", "secondary", "success", "warning", "danger", "light", "dark"],
                 className: "border-gray-200",
             },
             {
@@ -54,17 +58,17 @@ export const cardVariants = cva(
                 className: "transition-all duration-300 ease-in-out",
             },
             {
-                color: ["light", "dark"],
+                color: ["base", "primary", "secondary", "success", "warning", "danger", "light", "dark"],
                 size: ["sm", "md", "lg", "xl"],
                 className: "transition-all duration-300 ease-in-out",
             },
             {
-                color: ["light", "dark"],
+                color: ["base", "primary", "secondary", "success", "warning", "danger", "light", "dark"],
                 radius: ["none", "sm", "md", "lg", "xl"],
                 className: "transition-all duration-300 ease-in-out",
             },
             {
-                color: ["light", "dark"],
+                color: ["base", "primary", "secondary", "success", "warning", "danger", "light", "dark"],
                 shadow: ["none", "sm", "md", "lg", "xl"],
                 className: "transition-all duration-300 ease-in-out",
             },
@@ -95,7 +99,7 @@ export const cardVariants = cva(
 );
 
 export const cardHeaderVariants = cva(
-    "flex items-center justify-between w-full p-3 ",
+    "w-full p-3",
     {
         variants: {
             color: {
@@ -112,18 +116,18 @@ export const cardHeaderVariants = cva(
 
         compoundVariants: [
             {
-                color: ["light", "dark"],
+                color: ["base", "primary", "secondary", "success", "warning", "danger", "light", "dark"],
                 className: "border-gray-200",
             },
         ],
 
         defaultVariants: {
-            color: "light",
+            color: "base",
         },
     },
 );
 
-export const cardBodyVariants = cva("flex-1 p-3", {
+export const cardBodyVariants = cva("w-full p-3", {
     variants: {
         color: {
             base: "bg-base-100 text-gray-900",
@@ -139,18 +143,19 @@ export const cardBodyVariants = cva("flex-1 p-3", {
 
     compoundVariants: [
         {
-            color: ["light", "dark"],
+            color: ["base", "primary", "secondary", "success", "warning", "danger", "light", "dark"],
+            
             className: "border-gray-200",
         },
     ],
 
     defaultVariants: {
-        color: "light",
+        color: "base",
     },
 });
 
 export const cardFooterVariants = cva(
-    "flex items-center justify-between w-full p-3",
+    "w-full p-3",
     {
         variants: {
             color: {
@@ -167,13 +172,13 @@ export const cardFooterVariants = cva(
 
         compoundVariants: [
             {
-                color: ["light", "dark"],
+                color: ["base", "primary", "secondary", "success", "warning", "danger", "light", "dark"],
                 className: "border-gray-200",
             },
         ],
 
         defaultVariants: {
-            color: "light",
+            color: "base",
         },
     },
 );
