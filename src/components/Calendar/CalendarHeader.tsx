@@ -3,7 +3,8 @@ import React, {useState} from "react";
 import { calendarHeaderVariants } from "./CalendarVariants";
 import { MonthPicker } from "./MonthPicker";
 import { YearPicker } from "./YearPicker";
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
+
 
 interface CalendarHeaderProps {
   currentMonth: Date;
@@ -25,6 +26,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   onNextMonth,
   onToday,
   todayClicked,
+
 }) => {
   const [isMonthOpen, setIsMonthOpen] = useState(false)
   const [isYearOpen, setIsYearOpen] = useState(false)
@@ -39,6 +41,8 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   <div className={calendarHeaderVariants({ variant: variant === "range-picker" ? "default" : variant })}>
     <button
       onClick={handleTodayClick}
+
+
       className={cn( 
         "px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all",
         {
@@ -50,6 +54,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     </button>
 
     {variant === "month-year-picker" ? (
+
       <div className="flex gap-2 select-none">
         <MonthPicker 
           month={currentMonth.getMonth()} 
@@ -63,6 +68,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
           open={isYearOpen}
           onOpenChange={setIsYearOpen}
         />
+
       </div>
     ) : (
       <div className="flex items-center gap-2">
@@ -84,4 +90,6 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
       </div>
     )}
   </div>
+
 )};
+

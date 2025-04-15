@@ -4,6 +4,7 @@ import './monthYear.css'
 interface MonthPickerProps {
 month: number;
 onChange: (month: number) => void;
+
 open:boolean,
 onOpenChange:(open:boolean)=>void
 }
@@ -14,12 +15,14 @@ export const MonthPicker: React.FC<MonthPickerProps> = ({
   open,
   onOpenChange 
 }) => {
+
 const months = Array.from({ length: 12 }, (_, i) =>
 new Date(2000, i).toLocaleString("default", { month: "long" })
 );
 
 return (
 <div className="relative w-32">
+
   <div
   className="flex items-center justify-between p-2 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer hover:border-blue-400 transition-colors"
   onClick={() => onOpenChange(!open)}
@@ -36,6 +39,7 @@ return (
   </div>
 
 {open && (
+
     <div className="absolute z-10 w-full mt-1 bg-gray-800 border border-gray-700 rounded-lg shadow-lg max-h-60 overflow-auto scrollbar-hide">
       {months.map((monthName, index) => (
         <div
@@ -43,7 +47,9 @@ return (
           className={`p-2 text-white cursor-pointer hover:bg-gray-700 ${month === index ? "bg-blue-600" : ""}`}
           onClick={() => {
             onChange(index);
+
             onOpenChange(false);
+
           }}
         >
           {monthName}
