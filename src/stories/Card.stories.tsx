@@ -30,7 +30,7 @@ const meta: Meta<typeof Card> = {
     },
     size: {
       control: "select",
-      options: ["sm", "md", "lg", "xl"],
+      options: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "full"],
       description: "Size of the card",
     },
     radius: {
@@ -103,12 +103,12 @@ export const Product: Story = {
     shadow: "lg",
   },
   render: (args) => (
-    <Card {...args} className="w-96">
-      <CardBody {...args} className="flex items-center justify-center p-4">
+    <Card {...args} >
+      <CardBody {...args} className="flex items-center justify-center">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Watermelon_logo.png"
           alt="watermelon"
-          className="w-80 rounded-lg bg-gray-100 saturate-200 filter"
+          className={`w-${args.size} rounded-${args.radius} bg-gray-300 opacity-90 saturate-200 filter`}
         />
       </CardBody>
       <CardFooter {...args} className="flex items-start justify-between gap-4">
@@ -195,7 +195,7 @@ export const SimpleCard: Story = {
         <img src="https://assets.telegraphindia.com/telegraph/2024/Feb/1707386339_lisa-from-blackpink.jpg" alt="Lisa in black and white shirt" className={`w-${args.size} rounded-${args.radius}`} />
       </CardHeader>
       <CardBody {...args} >
-        <h1 className="text-2xl text-font-bold">Let me check</h1>
+        <h1 className="text-2xl font-bold">Lalisa Manobal aka LISA</h1>
         <p className="text-[1rem] mt-2 opacity-90">Lisa from BLACKPINK is a talented rapper, dancer, and fashion icon, known for her charisma, versatility, and global influence.</p>
       </CardBody>
       <CardFooter {...args} className="flex justify-start">

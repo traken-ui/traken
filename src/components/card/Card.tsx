@@ -18,7 +18,7 @@ interface CardProps {
         | "danger"
         | "light"
         | "dark";
-    size?: "sm" | "md" | "lg" | "xl";
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
     radius?: "none" | "sm" | "md" | "lg" | "xl";
     shadow?: "none" | "sm" | "md" | "lg" | "xl";
     className?: string;

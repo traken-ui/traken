@@ -15,10 +15,14 @@ export const cardVariants = cva(
                 dark: "bg-base-800 text-gray-100",
             },
             size: {
-                sm: "text-sm px-1 py-1 max-w-[360px]",
-                md: "text-md px-1 py-1 max-w-[400px]",
-                lg: "text-lg px-1 py-2 max-w-[440px]",
-                xl: "text-xl px-1 py-3 max-w-[480px]",
+                xs: "max-w-xs px-4 py-2",
+                sm: "max-w-sm px-6 py-3",
+                md: "max-w-md px-8 py-3",
+                lg: "max-w-lg px-10 py-4",
+                xl: "max-w-xl px-12 py-4",
+                "2xl": "max-w-2xl px-14 py-4",
+                "3xl": "max-w-3xl px-16 py-6",
+                full: "max-w-full px-10 py-10",
             },
             radius: {
                 none: "rounded-none",
