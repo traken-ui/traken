@@ -10,17 +10,16 @@ npm install trakenui
 
 ## Setup
 
-### 1. Run the setup script to update your Tailwind configuration:
 
-```bash
-npx traken-setup-tailwind
-```
-
-### 2. Import the CSS in your main application file:
+### 1. Import the CSS in your main application file:
 
 ```js
 // In your main app file (e.g., App.jsx, _app.js, etc.)
 import 'trakenui/dist/styles.css';
+```
+```js
+// In your main app file (e.g., App.jsx, _app.js, etc.)
+import 'traken-ui/traken-theme.css';
 ```
 
 ### 3. Use the components:

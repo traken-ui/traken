@@ -1,6 +1,6 @@
 {
-  "name": "@minato-sama-ui/react",
-  "version": "0.0.1",
+  "name": "@traken-ui/react",
+  "version": "0.1.0",
   "private": false,
   "type": "module",
   "main": "dist/cjs/index.js",
@@ -9,13 +9,10 @@
   "files": [
     "dist"
   ],
-  "bin": {
-    "traken-setup-tailwind": "scripts/setup-tailwind.js"
-  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && rollup -c --bundleConfigAsCjs && tailwind",
-    "tailwind": "npx @tailwindcss/cli -i ./src/index.css -o ./src/traken-theme.css",
+    "build": "tsc && rollup -c --bundleConfigAsCjs ",
+    "tailwind": "npx @tailwindcss/cli -i ./src/index.css -o ./dist/traken-theme.css",
     "lint": "eslint ./src/ --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "eslint ./src/ --ext .ts,.tsx,.js,.jsx --fix",
     "preview": "vite preview",
@@ -63,11 +60,9 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.4.0",
-
     "rollup-plugin-import-css": "^3.5.8",
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.1.3"
-
   },
   "peerDependencies": {
     "react": "^19.0.0",

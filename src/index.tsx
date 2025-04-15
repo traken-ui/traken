@@ -4,7 +4,7 @@ import {Card, CardHeader, CardBody,CardFooter} from "./components/card/Card";
 import Carousel from './components/carousel/Carousel';
 import Checkbox from './components/checkbox/checkbox';
 import Input from './components/input/input';
-// import {Modal, ModalBody, ModalClose,ModalContent,ModalFooter,ModalHeader,ModalTrigger} from './components/modal/Modal';
+import {Modal, ModalBody, ModalClose,ModalContent,ModalFooter,ModalHeader,ModalTrigger} from './components/modal/Modal';
 import Skeleton from './components/skeleton/skeleton';
 import { Calendar } from './components/Calendar/Calendar';
 import { Accordion, AccordionItem } from './components/accordion/Accordion';
@@ -26,13 +26,13 @@ export {
     Carousel,
     Checkbox,
     Input,
-    // Modal,
-    // ModalBody,
-    // ModalClose,
-    // ModalContent,
-    // ModalFooter,
-    // ModalHeader,
-    // ModalTrigger,
+    Modal,
+    ModalBody,
+    ModalClose,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    ModalTrigger,
     Skeleton,
     Calendar,
     Accordion,

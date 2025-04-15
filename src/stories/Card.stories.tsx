@@ -134,7 +134,7 @@ export const Profile: Story = {
         <Card {...args}>
             <CardHeader
                 {...args}
-                className="flex flex-col justify-center gap-4 p-4 text-center"
+                className="flex flex-col justify-center gap-4  text-center"
             >
                 <img
                     src="https://4kwallpapers.com/images/walls/thumbs_3t/10912.jpg"

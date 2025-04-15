@@ -43,7 +43,7 @@ export const Default: Story = {
   },
   args: {
     variant: "default",
-    color: "default",
+    color: "primary",
     size: "md",
     disablePast: false,
     disableFuture: false,
