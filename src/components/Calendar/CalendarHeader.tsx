@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, {useState} from "react";
 import { calendarHeaderVariants } from "./CalendarVariants";
 import { MonthPicker } from "./MonthPicker";
 import { YearPicker } from "./YearPicker";
@@ -24,10 +25,20 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   onNextMonth,
   onToday,
   todayClicked,
-}) => (
+}) => {
+  const [isMonthOpen, setIsMonthOpen] = useState(false)
+  const [isYearOpen, setIsYearOpen] = useState(false)
+
+  const handleTodayClick = ()=>{
+    onToday()
+    setIsMonthOpen(false)
+    setIsYearOpen(false)
+  }
+
+  return (
   <div className={calendarHeaderVariants({ variant: variant === "range-picker" ? "default" : variant })}>
     <button
-      onClick={onToday}
+      onClick={handleTodayClick}
       className={cn( 
         "px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all",
         {
@@ -39,9 +50,19 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     </button>
 
     {variant === "month-year-picker" ? (
-      <div className="flex gap-2">
-        <MonthPicker month={currentMonth.getMonth()} onChange={onMonthChange} />
-        <YearPicker year={currentMonth.getFullYear()} onChange={onYearChange} />
+      <div className="flex gap-2 select-none">
+        <MonthPicker 
+          month={currentMonth.getMonth()} 
+          onChange={onMonthChange} 
+          open={isMonthOpen}
+          onOpenChange={setIsMonthOpen}
+        />
+        <YearPicker 
+          year={currentMonth.getFullYear()} 
+          onChange={onYearChange} 
+          open={isYearOpen}
+          onOpenChange={setIsYearOpen}
+        />
       </div>
     ) : (
       <div className="flex items-center gap-2">
@@ -63,4 +84,4 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
       </div>
     )}
   </div>
-);
+)};
