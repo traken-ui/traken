@@ -35,7 +35,7 @@ export interface TabsProps<T extends { key: React.Key; title: string }> {
   >;
   placement?: "top" | "bottom" | "start" | "end";
   isVertical?: boolean;
-  children: ReactNode | ((item: T) => ReactElement);
+  children?: ReactNode | ((item: T) => ReactElement);
 }
 
 export function Tabs<T extends { key: React.Key; title: string }>({
