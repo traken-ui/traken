@@ -16,7 +16,7 @@ const meta: Meta<typeof Calendar> = {
     },
     color: {
       control: { type: "select" },
-      options: ["default", "primary", "secondary"],
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     size: {
       control: { type: "select" },
@@ -114,66 +114,66 @@ export const DisableFutureDates: Story = {
   },
 };
 
-export const PrimaryColor: Story = {
-  render: (args) => {
-    const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-    return (
-      <Calendar
-        {...args}
-        selectedDates={selectedDates}
-        onDateSelect={(date) => setSelectedDates([date])}
-      />
-    );
-  },
-  args: {
-    color: "primary",
-  },
-};
+// export const PrimaryColor: Story = {
+//   render: (args) => {
+//     const [selectedDates, setSelectedDates] = useState<Date[]>([]);
+//     return (
+//       <Calendar
+//         {...args}
+//         selectedDates={selectedDates}
+//         onDateSelect={(date) => setSelectedDates([date])}
+//       />
+//     );
+//   },
+//   args: {
+//     color: "primary",
+//   },
+// };
 
-export const SecondaryColor: Story = {
-  render: (args) => {
-    const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-    return (
-      <Calendar
-        {...args}
-        selectedDates={selectedDates}
-        onDateSelect={(date) => setSelectedDates([date])}
-      />
-    );
-  },
-  args: {
-    color: "secondary",
-  },
-};
+// export const SecondaryColor: Story = {
+//   render: (args) => {
+//     const [selectedDates, setSelectedDates] = useState<Date[]>([]);
+//     return (
+//       <Calendar
+//         {...args}
+//         selectedDates={selectedDates}
+//         onDateSelect={(date) => setSelectedDates([date])}
+//       />
+//     );
+//   },
+//   args: {
+//     color: "secondary",
+//   },
+// };
 
-export const SmallSize: Story = {
-  render: (args) => {
-    const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-    return (
-      <Calendar
-        {...args}
-        selectedDates={selectedDates}
-        onDateSelect={(date) => setSelectedDates([date])}
-      />
-    );
-  },
-  args: {
-    size: "sm",
-  },
-};
+// export const SmallSize: Story = {
+//   render: (args) => {
+//     const [selectedDates, setSelectedDates] = useState<Date[]>([]);
+//     return (
+//       <Calendar
+//         {...args}
+//         selectedDates={selectedDates}
+//         onDateSelect={(date) => setSelectedDates([date])}
+//       />
+//     );
+//   },
+//   args: {
+//     size: "sm",
+//   },
+// };
 
-export const LargeSize: Story = {
-  render: (args) => {
-    const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-    return (
-      <Calendar
-        {...args}
-        selectedDates={selectedDates}
-        onDateSelect={(date) => setSelectedDates([date])}
-      />
-    );
-  },
-  args: {
-    size: "lg",
-  },
-};
+// export const LargeSize: Story = {
+//   render: (args) => {
+//     const [selectedDates, setSelectedDates] = useState<Date[]>([]);
+//     return (
+//       <Calendar
+//         {...args}
+//         selectedDates={selectedDates}
+//         onDateSelect={(date) => setSelectedDates([date])}
+//       />
+//     );
+//   },
+//   args: {
+//     size: "lg",
+//   },
+// };
