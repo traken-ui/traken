@@ -12,8 +12,9 @@ interface CalendarProps {
   disableFuture?: boolean;
   className?: string;
   variant?: "default" | "month-year-picker" | "range-picker";
-  color?: "default" | "primary" | "secondary";
+  color?: "light" | "dark";
   size?: "sm" | "md" | "lg";
+  shadow?: "sm" | "md" | "lg" | "xl" | "none";
 }
 
 const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
@@ -25,8 +26,9 @@ export const Calendar: React.FC<CalendarProps> = ({
   disableFuture = false,
   className = "",
   variant = "default",
-  color = "default",
+  color = "light",
   size = "md",
+  shadow = "md",
 }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [range, setRange] = useState<[Date | null, Date | null]>([null, null]);
@@ -77,7 +79,7 @@ export const Calendar: React.FC<CalendarProps> = ({
   };
 
   return (
-    <div className={cn(calendarVariants({ color, size, className }))}>
+    <div className={cn(calendarVariants({ color, size, shadow, className }))}>
       <CalendarHeader
         currentMonth={currentMonth}
         variant={variant}
