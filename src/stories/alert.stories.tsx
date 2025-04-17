@@ -18,7 +18,7 @@ const meta: Meta<StoryProps> = {
         },
         color: {
             control: "select",
-            options: ["base", "success", "warning", "primary", "secondary", "danger"],
+            options: ["base", "primary", "secondary", "success", "warning", "danger"],
             description: "Variant of the alert",
         },
         size: {

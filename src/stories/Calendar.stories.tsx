@@ -20,7 +20,7 @@ const meta: Meta<typeof Calendar> = {
     },
     size: {
       control: { type: "select" },
-      options: ["sm", "md", "lg"],
+      options: ["sm", "md", "lg", "xl", "2xl", "full"],
     },
     shadow: {
       control: { type: "select" },

@@ -34,7 +34,7 @@ const Alert: React.FC<AlertProps> = ({
     return (
         <div
             className={cn(
-                "relative flex items-center text-inherit justify-between w-full mx-auto p-4 text-gray-800 transition-all duration-300",
+                "relative flex items-center justify-between w-full mx-auto p-4 text-gray-800 transition-all duration-300",
                 alertVariants({ color, rounded, shadow, size, variant }),
                 className
             )}

@@ -1,15 +1,18 @@
 import { cva } from "class-variance-authority";
 
-export const calendarVariants = cva("w-full max-w-md bg-gray-900 text-white p-4 rounded-lg shadow-lg", {
+export const calendarVariants = cva("w-full bg-gray-900 text-white p-4 rounded-lg shadow-lg", {
   variants: {
     color: {
       light: "bg-white text-gray-900",
       dark: "bg-black text-gray-100",
     },
     size: {
-      sm: "text-sm",
-      md: "text-base",
-      lg: "text-lg"
+      sm: "w-sm text-sm",
+      md: "w-md text-md",
+      lg: "w-lg text-lg",
+      xl: "w-xl text-xl",
+      "2xl": "w-2xl text-2xl",
+      full: "w-full text-3xl",
     },
     shadow: {
       sm: "shadow-sm",

@@ -13,7 +13,7 @@ interface CalendarProps {
   className?: string;
   variant?: "default" | "month-year-picker" | "range-picker";
   color?: "light" | "dark";
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl" | "2xl" | "full";
   shadow?: "sm" | "md" | "lg" | "xl" | "none";
 }
 
@@ -29,7 +29,7 @@ export const Calendar: React.FC<CalendarProps> = ({
   color = "light",
   size = "md",
   shadow = "md",
-}) => {
+}:CalendarProps) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [range, setRange] = useState<[Date | null, Date | null]>([null, null]);
   const [hoveredDate, setHoveredDate] = useState<Date | null>(null);
@@ -68,7 +68,7 @@ export const Calendar: React.FC<CalendarProps> = ({
     setCurrentMonth(today);
     setTodayClicked(true);
 
-    //clear previous selection
+
     if (variant === "range-picker") {
       setRange([today, today]);
     }
