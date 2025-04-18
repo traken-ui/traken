@@ -1,39 +1,26 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { ComponentProps } from "react";
+import { ComponentProps, useState } from "react";
+import { Meta, StoryObj } from "@storybook/react";
+import { Select, Option, SelectGroup } from "../components/select/Select";
 import React from "react";
 
-type StoryProps = ComponentProps<typeof Button> & {
-  buttonText: string;
-};
+type StoryProps = ComponentProps<typeof Select>;
 
-const meta: Meta<StoryProps> = {
-  title: "Components/Select",
-  component: Button,
+const meta: Meta<typeof Select> = {
+  title: "Components/CustomSelect",
+  component: Select,
   tags: ["autodocs"],
   argTypes: {
-    buttonText: {
-      control: "text",
-      description: "Text to be displayed on the button",
+    variant: {
+      control: "select",
+      options: ["flat", "faded", "bordered", "underlined"],
     },
     color: {
       control: "select",
       options: ["base", "primary", "secondary", "success", "warning", "danger"],
-      description: "Color of the button",
-    },
-    size: {
-      control: "select",
-      options: ["sm", "md", "lg", "xl"],
-      description: "Size of the button",
     },
     rounded: {
       control: "select",
       options: ["sm", "md", "lg", "xl", "full"],
-      description: "Rounded corners of the button",
-    },
-    variant: {
-      control: "select",
-      options: ["solid", "outline", "ghost", "flat"],
-      description: "Variant of the button",
     },
   },
 };
@@ -42,11 +29,26 @@ export default meta;
 
 export const Default: StoryObj<StoryProps> = {
   args: {
-    buttonText: "Default Button",
-    color: "secondary",
-    size: "md",
-    rounded: "md",
-    variant: "outline",
+    variant: "flat",
+    color: "base",
+    rounded: "sm",
+    isDisabled: false,
+    fullWidth: false,
+    multi: true,
   },
-  render: (args) => <Button {...args}>{args.buttonText}</Button>,
+  render: (args) => (
+    <div className="w-72 h-72">
+      <Select multi>
+        <SelectGroup label="Fruits">
+          <Option value="apple">Apple</Option>
+          <Option value="banana">Banana</Option>
+        </SelectGroup>
+        <SelectGroup label="Vegetables">
+          <Option value="carrot">Carrot</Option>
+          <Option value="spinach">Spinach</Option>
+        </SelectGroup>
+        <Option value="none">None</Option>
+      </Select>
+    </div>
+  ),
 };

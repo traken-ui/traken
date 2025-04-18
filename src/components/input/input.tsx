@@ -15,7 +15,7 @@ export interface InputProps extends NativeInputProps {
     label?:string;
     labelPlacement?: "top"|"left"
 }
-
+ 
 const Input = ({
     placeholder,
     id,

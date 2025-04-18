@@ -19,7 +19,7 @@ const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 interface ModalProps {
     children: React.ReactNode;
-    color?: "base" | "primary" | "secondary" | "success" | "warning" | "danger" | "transparent";
+    color?: "base" | "primary" | "secondary" | "success" | "warning" | "danger" |"subtle" | "transparent";
     size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
     radius?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "full";
     shadow?: "none" | "sm" | "md" | "lg" | "xl";
