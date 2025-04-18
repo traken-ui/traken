@@ -1,89 +1,173 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { ComponentProps } from "react";
-import { Tabs } from "../components/tabs/Tabs";
+import { Tab, Tabs } from "../components/tabs/Tabs";
 
-type TabItem = { key: React.Key; title: string };
-type StoryProps = ComponentProps<typeof Tabs<TabItem>>;
-
-const items = [
-  { key: "tab1", title: "Photos" },
-  { key: "tab2", title: "Musics" },
-  { key: "tab3", title: "Videos" },
-];
+type StoryProps = ComponentProps<typeof Tabs>;
 
 const meta: Meta<StoryProps> = {
   title: "Components/Tabs",
   component: Tabs,
   tags: ["autodocs"],
   argTypes: {
-    items: { table: { disable: true } },
-    children: { table: { disable: true } },
-    placement: { table: { disable: true } },
-    isVertical: { table: { disable: true } },
-    destroyInactiveTabPanel: { table: { disable: true } },
-    defaultSelectedKey: { table: { disable: true } },
-    selectedKey: { table: { disable: true } },
-    classNames: { table: { disable: true } },
-
     variant: {
-      control: "select",
-      options: ["solid", "bordered", "light", "underlined"],
-      description: "Style variant of the tabs",
+      control: {
+        type: "select",
+        options: ["solid", "bordered", "light", "underlined"],
+      },
     },
     color: {
-      control: "select",
-      options: [
-        "default",
-        "primary",
-        "secondary",
-        "success",
-        "warning",
-        "danger",
-      ],
-      description: "Color theme of the tabs",
+      control: {
+        type: "select",
+        options: [
+          "default",
+          "primary",
+          "secondary",
+          "success",
+          "warning",
+          "danger",
+        ],
+      },
     },
     size: {
-      control: "select",
-      options: ["sm", "md", "lg"],
-      description: "Size of the tabs",
+      control: {
+        type: "select",
+        options: ["sm", "md", "lg"],
+      },
     },
     radius: {
-      control: "select",
-      options: ["none", "sm", "md", "lg", "full"],
-      description: "Corner radius of the tabs",
+      control: {
+        type: "select",
+        options: ["none", "sm", "md", "lg", "full"],
+      },
     },
-    isDisabled: {
-      control: "boolean",
-      description: "Disable all tabs",
+    isVertical: {
+      control: {
+        type: "boolean",
+      },
     },
   },
 };
 
 export default meta;
 
-export const Default: StoryObj<StoryProps> = {
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
-    items,
     variant: "solid",
     color: "default",
     size: "md",
     radius: "md",
-    isDisabled: false,
-    children: (item) => (
-      <div className="p-4">This is {item.title} content.</div>
-    ),
+    defaultSelectedKey: "tab1",
   },
+  render: (args) => (
+    <Tabs {...args}>
+      <Tab tabKey="tab1" title="Tab 1">
+        Content for Tab 1
+      </Tab>
+      <Tab tabKey="tab2" title="Tab 2">
+        Content for Tab 2
+      </Tab>
+      <Tab tabKey="tab3" title="Tab 3">
+        Content for Tab 3
+      </Tab>
+    </Tabs>
+  ),
 };
 
-export const Underlined: StoryObj<StoryProps> = {
+export const Bordered: StoryObj<StoryProps> = {
   args: {
-    items,
-    variant: "underlined",
-    color: "default",
-    size: "sm",
-    radius: "none",
+    variant: "bordered",
+    color: "primary",
+    size: "md",
+    radius: "md",
     isDisabled: false,
+    defaultSelectedKey: "tab1",
   },
-  render: (args) => <Tabs {...args} />,
+  render: (args) => (
+    <Tabs {...args}>
+      <Tab tabKey="tab1" title="Photos">
+        <div className="p-4">This is Photos content.</div>
+      </Tab>
+      <Tab tabKey="tab2" title="Music">
+        <div className="p-4">This is Music content.</div>
+      </Tab>
+      <Tab tabKey="tab3" title="Videos">
+        <div className="p-4">This is Videos content.</div>
+      </Tab>
+    </Tabs>
+  ),
+};
+
+export const Light: StoryObj<StoryProps> = {
+  args: {
+    variant: "light",
+    color: "success",
+    size: "md",
+    radius: "lg",
+    isDisabled: false,
+    defaultSelectedKey: "tab1",
+  },
+  render: (args) => (
+    <Tabs {...args}>
+      <Tab tabKey="tab1" title="Photos">
+        <div className="p-4">This is Photos content.</div>
+      </Tab>
+      <Tab tabKey="tab2" title="Music">
+        <div className="p-4">This is Music content.</div>
+      </Tab>
+      <Tab tabKey="tab3" title="Videos">
+        <div className="p-4">This is Videos content.</div>
+      </Tab>
+    </Tabs>
+  ),
+};
+
+export const Vertical: StoryObj<StoryProps> = {
+  args: {
+    variant: "solid",
+    color: "secondary",
+    size: "md",
+    radius: "md",
+    isVertical: true,
+    defaultSelectedKey: "tab1",
+  },
+  render: (args) => (
+    <Tabs {...args}>
+      <Tab tabKey="tab1" title="Photos">
+        <div className="p-4">This is Photos content.</div>
+      </Tab>
+      <Tab tabKey="tab2" title="Music">
+        <div className="p-4">This is Music content.</div>
+      </Tab>
+      <Tab tabKey="tab3" title="Videos">
+        <div className="p-4">This is Videos content.</div>
+      </Tab>
+    </Tabs>
+  ),
+};
+
+export const DisabledTabs: StoryObj<StoryProps> = {
+  args: {
+    variant: "solid",
+    color: "danger",
+    size: "md",
+    radius: "md",
+    disabledKeys: ["tab2"],
+    defaultSelectedKey: "tab1",
+  },
+  render: (args) => (
+    <Tabs {...args}>
+      <Tab tabKey="tab1" title="Photos">
+        <div className="p-4">This is Photos content.</div>
+      </Tab>
+      <Tab tabKey="tab2" title="Music (Disabled)">
+        <div className="p-4">This is Music content.</div>
+      </Tab>
+      <Tab tabKey="tab3" title="Videos">
+        <div className="p-4">This is Videos content.</div>
+      </Tab>
+    </Tabs>
+  ),
 };
