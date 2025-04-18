@@ -1,20 +1,28 @@
 import { cva } from "class-variance-authority";
 
-export const calendarVariants = cva("w-full max-w-md bg-gray-900 text-white p-4 rounded-lg shadow-lg", {
+export const calendarVariants = cva("w-full bg-gray-900 text-white p-4 rounded-lg shadow-lg", {
   variants: {
     color: {
-      default: "bg-gray-900",
-      primary: "bg-blue-900",
-      secondary: "bg-purple-900"
+      // light: "bg-white text-balck dark:text-gray-900 dark:bg-gray-100" ,
+      dark: "bg-black text-gray-100 dark:text-gray-900 dark:bg-gray-100",
     },
     size: {
-      sm: "text-sm",
-      md: "text-base",
-      lg: "text-lg"
+      sm: "w-sm text-sm",
+      md: "w-md text-md",
+      lg: "w-lg text-lg",
+      xl: "w-xl text-xl",
+     
+    },
+    shadow: {
+      sm: "shadow-sm",
+      md: "shadow-md",
+      lg: "shadow-lg",
+      xl: "shadow-xl",
+      none: "shadow-none"
     }
   },
   defaultVariants: {
-    color: "default",
+    color: "dark",
     size: "md"
   }
 });
@@ -36,22 +44,22 @@ export const calendarDayVariants = cva(
   {
     variants: {
       isToday: {
-        true: "border border-blue-400"
+        true: "border border-primary-400"
       },
       isSelected: {
-        true: "bg-blue-600 text-white" 
+        true: "bg-primary-600 text-white" 
       },
       isDisabled: {
-        true: "text-gray-600 cursor-not-allowed"
+        true: "text-base-400 cursor-not-allowed"
       },
       isPreviewRange: {
-        true: "bg-blue-900/30"
+        true: "bg-primary-900/30"
       },
       isPreviewEdge: {
-        true: "border border-dashed border-blue-400" 
+        true: "border border-dashed border-primary-400" 
       },
       isTodayHighlighted: {
-        true: 'border border-blue-400 animate-pulse'
+        true: 'border border-primary-400 animate-pulse'
       }  
     },
     compoundVariants: [
