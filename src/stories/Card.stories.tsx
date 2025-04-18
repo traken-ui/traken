@@ -41,6 +41,7 @@ export default meta;
 
 type Story = StoryObj<typeof Card>;
 
+// Story Books for Card Component
 export const Default: Story = {
   args: {
     color: "light",
@@ -55,7 +56,7 @@ export const Default: Story = {
         className="flex items-center justify-start gap-4 p-4"
       >
         <img
-          src="https://pbs.twimg.com/profile_images/1907503240561963010/EAlPUJPR_400x400.jpg"
+          src="https://pbs.twimg.com/profile_images/1910837745565536256/q9GR5cSX_400x400.jpg"
           alt="Traken UI Logo"
           className="h-12 w-12 rounded object-cover shadow-lg"
         />
@@ -94,17 +95,96 @@ export const Product: Story = {
     shadow: "lg",
   },
   render: (args) => (
-    <Card {...args}>
-      <CardBody {...args} className="flex items-center justify-center">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Watermelon_logo.png"
-          alt="watermelon"
-          className={`w-${args.size} rounded-${args.radius} bg-gray-300 opacity-90 saturate-200 filter`}
-        />
+    <Card
+      {...args}
+      className="relative overflow-hidden shadow-lg transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl"
+    >
+      <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-blue-600 via-teal-500 to-cyan-600"></div>
+
+      <CardHeader className="px-4 py-2" {...args}>
+        <div className="relative flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Watermelon_logo.png"
+              alt="Watermelon"
+              className="h-20 w-20 rounded-xl border border-emerald-100 bg-gradient-to-br from-white to-emerald-50 object-contain p-2 shadow-sm"
+            />
+
+            <div>
+              <h1 className="flex items-center gap-1 text-xl font-bold tracking-tight">
+                Watermelon
+                <span className="ml-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
+                  Organic
+                </span>
+              </h1>
+              <div className="mt-1 text-sm">Premium summer fruit</div>
+            </div>
+          </div>
+
+          <div className="absolute right-0 bottom-4 flex flex-col items-end">
+            <div className="flex items-center gap-0.5">
+              <span className="h-4 w-4 fill-amber-400" />
+              <span className="h-4 w-4 fill-amber-400" />
+              <span className="h-4 w-4 fill-amber-400" />
+              <span className="h-4 w-4 fill-amber-400" />
+              <span className="h-4 w-4 fill-gray-200" />
+              <span className="ml-1 text-xs">4.0</span>
+            </div>
+          </div>
+        </div>
+      </CardHeader>
+
+      <CardBody {...args} className="px-4 pt-4">
+        <div className="mb-4 flex items-center justify-between">
+          <div className="flex gap-2">
+            {["Sweet", "Juicy", "Fresh"].map((tag, index) => (
+              <span
+                key={index}
+                className="rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <p className="text-2xl font-bold text-emerald-600">$7.09</p>
+        </div>
+
+        <div className="space-y-3">
+          <div className="flex items-center gap-3">
+            <div className="h-2 w-2 rounded-full bg-emerald-500"></div>
+            <p className="text-sm">Rich in vitamins A, B6, and C</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="h-2 w-2 rounded-full bg-emerald-500"></div>
+            <p className="text-sm">92% water content, perfect for hydration</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="h-2 w-2 rounded-full bg-emerald-500"></div>
+            <p className="text-sm">Contains antioxidants like lycopene</p>
+          </div>
+        </div>
       </CardBody>
-      <CardFooter {...args} className="flex items-start justify-between gap-4">
-        <p className="text-lg font-bold opacity-95">Watermelon</p>
-        <p className="font-medium opacity-90">$7.09</p>
+
+      <CardFooter
+        {...args}
+        className="flex items-center justify-between px-4 pt-2 pb-6"
+      >
+        <Button
+          variant="outline"
+          size="sm"
+          rounded="full"
+          className="bg-gray-200 text-gray-800 hover:bg-gray-300 hover:text-gray-900"
+        >
+          ! Details
+        </Button>
+
+        <Button
+          size="md"
+          rounded="md"
+          className="bg-emerald-500 hover:bg-emerald-600"
+        >
+          ⨠ Add to Cart
+        </Button>
       </CardFooter>
     </Card>
   ),
@@ -121,29 +201,36 @@ export const Profile: Story = {
     <Card {...args}>
       <CardHeader
         {...args}
-        className="flex flex-col items-center justify-center gap-4 text-center"
+        className="flex flex-col items-center justify-center gap-4 pt-6 text-center"
       >
         <img
           src="https://4kwallpapers.com/images/walls/thumbs_3t/10912.jpg"
           alt="User Avatar"
-          className="h-24 w-24 rounded-full border-2 object-cover shadow-lg"
+          className="h-24 w-24 rounded-full border-4 object-cover shadow-xl transition-transform duration-300 hover:scale-105"
         />
         <div>
-          <h2 className="text-xl font-semibold">Lisa</h2>
-          <p className="text-sm font-medium opacity-90">Singer and Dancer</p>
+          <h2 className="text-2xl font-semibold tracking-wide">Lisa</h2>
+          <p className="text-sm font-medium">Singer and Dancer</p>
         </div>
       </CardHeader>
-      <CardBody {...args} className="text-center">
-        <p className="px-10 text-sm opacity-80">
+
+      <CardBody {...args} className="px-8 pb-4 text-center">
+        <p className="text-sm leading-relaxed">
           Lalisa Manobal, also known as Lisa, is a member of the South Korean
-          girl group Blackpink,.
+          girl group Blackpink.
         </p>
       </CardBody>
+
       <CardFooter
         {...args}
-        className="flex justify-center border-t border-gray-500"
+        className="flex items-center justify-center gap-2 border-t border-white/10 px-6 py-4"
       >
-        <Button color="primary">Send Message</Button>
+        <Button
+          variant="outline"
+          className="rounded-full bg-white px-6 py-2 text-sm font-medium text-black transition-all duration-300 hover:bg-black hover:text-white"
+        >
+          Send Message
+        </Button>
       </CardFooter>
     </Card>
   ),
@@ -159,27 +246,37 @@ export const ModernLoginCard: Story = {
   render: (args) => (
     <Card {...args}>
       <CardHeader {...args}>
-        <div className="flex w-full items-center justify-center rounded-xl bg-neutral-800 py-10 text-2xl font-bold text-gray-200">
+        <div className="flex items-center justify-center rounded-t-2xl bg-indigo-500 py-8 text-3xl font-semibold text-white hover:bg-indigo-600">
           Sign In
         </div>
       </CardHeader>
-      <CardBody {...args}>
+
+      <CardBody {...args} className="flex flex-col gap-4 px-8 py-6">
         <input
-          type="text"
+          type="email"
           placeholder="Email"
-          className="mb-1 w-full rounded-md border-2 border-gray-500 px-4 py-2 focus:outline-0"
+          className="w-full rounded-md border focus:outline-1 outline-gray-300 border-gray-200 px-4 py-2 text-sm text-gray-500"
         />
         <input
           type="password"
           placeholder="Password"
-          className="mt-1 w-full rounded-md border-2 border-gray-500 px-4 py-2 focus:outline-0"
+          className="w-full rounded-md border focus:outline-1 outline-gray-300 border-gray-200 px-4 py-2 text-sm text-gray-500"
         />
       </CardBody>
-      <CardFooter {...args} className="flex flex-col items-center">
-        <Button color="primary">Sign In</Button>
-        <p className="mt-2 text-sm">
-          Don't have account ?{" "}
-          <span className="cursor-pointer text-[1rem] font-semibold opacity-80">
+
+      <CardFooter
+        {...args}
+        className="flex flex-col items-center gap-3 px-8 pb-6"
+      >
+        <Button
+          rounded="md"
+          className="w-full bg-indigo-500 px-4 py-2 text-white transition hover:bg-indigo-600"
+        >
+          Sign In
+        </Button>
+        <p className="text-sm">
+          Don't have an account?{" "}
+          <span className="cursor-pointer font-semibold text-indigo-300 hover:underline">
             Sign up
           </span>
         </p>
@@ -220,7 +317,7 @@ export const SimpleCard: Story = {
 
 // New More cards
 
-// Basic Card Example
+// Basic Card Example : Tommy Vercetti
 export const SimpleCardNew: Story = {
   args: {
     color: "light",
@@ -229,15 +326,36 @@ export const SimpleCardNew: Story = {
     shadow: "lg",
   },
   render: (args) => (
-    <Card {...args}>
-      <CardHeader {...args}>
-        <h3 className="text-xl font-bold">Card Title</h3>
+    <Card
+      className="mx-auto overflow-hidden rounded-lg p-0 shadow-pink-300"
+      {...args}
+    >
+      <CardHeader
+        className="p-3 flex items-center justify-between"
+        {...args}
+      >
+        <img
+          src="https://wallpaperaccess.com/full/3292902.jpg"
+          alt="Tommy Vercetti"
+          className="rounded-lg object-cover shadow-lg"
+        />
       </CardHeader>
-      <CardBody {...args}>
-        <p>This is a simple card with header, body, and footer sections.</p>
+
+      <CardBody className="p-4" {...args}>
+        <h3 className="text-xl font-bold">Tommy Vercetti</h3>
+        <p className="my-2">
+          Tommy Vercetti is the main protagonist of *Grand Theft Auto: Vice
+          City*. A former mobster for the Forelli family, Tommy was sent to Vice
+          City to expand the family's operations — but he ends up carving out
+          his own empire instead.
+        </p>
       </CardBody>
-      <CardFooter {...args}>
-        <p className="text-sm text-gray-500">Card Footer</p>
+
+      <CardFooter className="p-3" {...args}>
+        <p className="text-sm italic">
+          "I poked my head out of the gutter for one freakin' second and fate
+          shovels shit in my face."
+        </p>
       </CardFooter>
     </Card>
   ),
