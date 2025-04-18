@@ -11,8 +11,8 @@ interface CalendarProps {
   disableFuture?: boolean;
   className?: string;
   variant?: "default" | "month-year-picker" | "range-picker";
-  color?: "light" | "dark";
-  size?: "sm" | "md" | "lg" | "xl" | "2xl" | "full";
+  color?: "dark";
+  size?: "sm" | "md" | "lg" | "xl" ;
   shadow?: "sm" | "md" | "lg" | "xl" | "none";
 }
 
@@ -25,7 +25,7 @@ export const Calendar: React.FC<CalendarProps> = ({
   disableFuture = false,
   className = "",
   variant = "default",
-  color = "light",
+  color = "dark",
   size = "md",
   shadow = "md",
 }:CalendarProps) => {
