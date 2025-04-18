@@ -41,6 +41,11 @@ const meta: Meta<StoryProps> = {
         options: ["none", "sm", "md", "lg", "full"],
       },
     },
+    backgroundColor: {
+      control: {
+        type: "text",
+      },
+    },
     isVertical: {
       control: {
         type: "boolean",
