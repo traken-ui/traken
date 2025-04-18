@@ -20,8 +20,12 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   const visibleItems = shouldTruncate
     ? [
         ...items.slice(0, collapseAfter),
-        { label: "...", onClick: () => setExpanded(true) },
-        ...items.slice(currentIndex - 1),
+        { 
+          label: "...", 
+          onClick: () => setExpanded(true),
+          ariaLabel: "Show more breadcrumb items"
+        },
+        ...(currentIndex > 0 ? items.slice(currentIndex) : items.slice(-1))
       ]
     : items;
 
