@@ -13,7 +13,7 @@ export const modalVariants = cva(
         danger: "bg-danger text-gray-100",
         transparent: "bg-transparent backdrop-blur-sm text-gray-100",
         light: "bg-white text-gray-900",
-        dark: "bg-gray-900 text-gray-100",
+        dark: "bg-black text-gray-100",
       },
       size: {
         xs: "max-w-xs",
