@@ -217,7 +217,7 @@ function ModalClose({ children, className }: ModalCloseProps) {
       onClick={() => setIsOpen(false)}
     >
       {children || (
-        <button className="rounded-full p-1 hover:bg-gray-100">
+        <button className="rounded-full p-1 hover:bg-gray-200 hover:text-black">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -271,7 +271,7 @@ function ModalHeader({
   showCloseButton = true,
 }: ModalHeaderProps) {
   return (
-    <div className={cn("mb-4 flex items-center justify-between", className)}>
+    <div className={cn("flex justify-between", className)}>
       <div className="text-lg font-semibold">{children}</div>
       {showCloseButton && <ModalClose />}
     </div>
@@ -284,7 +284,7 @@ interface ModalBodyProps {
 }
 
 function ModalBody({ children, className }: ModalBodyProps) {
-  return <div className={cn("py-2", className)}>{children}</div>;
+  return <div className={cn("", className)}>{children}</div>;
 }
 
 interface ModalFooterProps {
@@ -294,12 +294,7 @@ interface ModalFooterProps {
 
 function ModalFooter({ children, className }: ModalFooterProps) {
   return (
-    <div
-      className={cn(
-        "mt-6 flex items-center justify-end gap-2 border-t pt-4",
-        className,
-      )}
-    >
+    <div className={cn("flex items-center justify-end", className)}>
       {children}
     </div>
   );
