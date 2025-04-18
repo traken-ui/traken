@@ -47,7 +47,7 @@ export const Default: Story = {
   },
   args: {
     variant: "default",
-    color: "light",
+    color: "dark",
     size: "md",
     shadow: "md",
     disablePast: false,
@@ -131,7 +131,7 @@ export const PrimaryColor: Story = {
     );
   },
   args: {
-    color: "light",
+    color: "dark",
     size: "md",
     shadow: "md",
   },
@@ -149,7 +149,7 @@ export const SecondaryColor: Story = {
     );
   },
   args: {
-    color: "light",
+    color: "dark",
     size: "md",
     shadow: "md",
   },
@@ -167,7 +167,7 @@ export const SmallSize: Story = {
     );
   },
   args: {
-    color: "light",
+    color: "dark",
     size: "sm",
     shadow: "sm",
   },
@@ -185,7 +185,7 @@ export const LargeSize: Story = {
     );
   },
   args: {
-    color: "light",
+    color: "dark",
     size: "lg",
     shadow: "lg",
   },
