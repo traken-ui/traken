@@ -28,6 +28,7 @@ To ensure proper styling, import the Traken UI CSS files into your global styles
 ```css
 @import "@traken-ui/react/dist/traken-theme.css";
 @import "@traken-ui/react/dist/esm/index.css";
+@import "tailwindcss";
 ```
 
 ### 2. Start Using Components
