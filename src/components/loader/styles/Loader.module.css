@@ -1,49 +1,320 @@
+.loaderSpinner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(transparent, currentColor);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 3px),
+    #fff 0
+  );
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff 0);
+  animation: spin 1s linear infinite;
+}
+
+.dotSpinner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.dot {
+  position: absolute;
+  width: 15%;
+  height: 15%;
+  border-radius: 50%;
+  transform-origin: center center;
+}
+
+.neonLoader {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: blur(5px);
+  box-shadow:
+    0 0 10px 2px currentColor,
+    0 0 30px -5px currentColor;
+  animation: pulse 2s ease-in-out infinite alternate;
+}
+
+/* Line loader */
+.lineLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+}
+
+.line {
+  width: 10%;
+  height: 40%;
+  border-radius: 3px;
+  animation: lineScale 1s ease-in-out infinite;
+}
+
+/* Logo loader */
+.logoLoader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.logoCircle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  opacity: 0.2;
+}
+
+.logoPath {
+  stroke: currentColor;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  animation: logoPathAnimate 3s ease-in-out infinite;
+}
+
+/* Square loader */
+.squareLoader {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.square {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid currentColor;
+  animation: squareRotate 3s ease-in-out infinite;
+}
+
+/* Letters loader */
+.lettersLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.letter {
+  font-weight: bold;
+  display: inline-block;
+  color: currentColor;
+  animation: letterGlow 1.6s ease-in-out infinite;
+  transform-origin: center center;
+  position: relative;
+}
+
+/* Bird loader */
+.birdLoader {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bird {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  animation: birdFly 2s ease-in-out infinite;
+}
+
+.birdBody {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 45%;
+  height: 25%;
+  background-color: currentColor;
+  border-radius: 50% 50% 20% 20%;
+  transform: rotate(-5deg);
+}
+
+.birdWing1,
+.birdWing2 {
+  position: absolute;
+  width: 60%;
+  height: 20%;
+  background-color: currentColor;
+  border-radius: 50%;
+}
+
+.birdWing1 {
+  top: 30%;
+  left: 20%;
+  transform-origin: right center;
+  animation: wingFlap 0.6s ease-in-out infinite;
+}
+
+.birdWing2 {
+  top: 30%;
+  left: 20%;
+  transform-origin: right center;
+  animation: wingFlap 0.6s ease-in-out infinite reverse;
+}
+
+.birdTrail {
+  position: absolute;
+  display: flex;
+  gap: 6px;
+  transform: translateX(-100%);
+}
+
+.birdDot {
+  width: 8px;
+  height: 8px;
+  background-color: currentColor;
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: trailFade 1.5s ease-in-out infinite;
+}
+
+/* Keyframes */
 @keyframes spin {
-    100% {
-      transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(1turn);
   }
-  
-  .loader-spinner {
-    width: 3rem;
-    height: 3rem;
-    border: 4px solid currentColor;
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-  
-  .dot-spinner {
-    position: relative;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .dot-spinner .dot {
-    position: absolute;
-    width: 0.6rem;
-    height: 0.6rem;
-    background-color: currentColor;
-    border-radius: 50%;
-    animation: dot-bounce 1.2s infinite ease-in-out;
-  }
-  
+}
 
-  .dot-spinner .dot:nth-child(1) { top: 0; left: 50%; animation-delay: -1.1s; }
-  .dot-spinner .dot:nth-child(2) { top: 14%; left: 85%; animation-delay: -1s; }
-  .dot-spinner .dot:nth-child(3) { top: 50%; left: 100%; animation-delay: -0.9s; }
-  .dot-spinner .dot:nth-child(4) { top: 85%; left: 85%; animation-delay: -0.8s; }
-  .dot-spinner .dot:nth-child(5) { top: 100%; left: 50%; animation-delay: -0.7s; }
-  .dot-spinner .dot:nth-child(6) { top: 85%; left: 14%; animation-delay: -0.6s; }
-  .dot-spinner .dot:nth-child(7) { top: 50%; left: 0; animation-delay: -0.5s; }
-  .dot-spinner .dot:nth-child(8) { top: 14%; left: 14%; animation-delay: -0.4s; }
-  
-
-  @keyframes dot-bounce {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(0.5); opacity: 0.5; }
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
   }
-  
+  100% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes lineScale {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes logoPathAnimate {
+  0% {
+    stroke-dashoffset: 150;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -150;
+  }
+}
+
+@keyframes squareRotate {
+  0% {
+    transform: rotate(0deg) scale(0.5);
+    opacity: 0.3;
+  }
+  25% {
+    transform: rotate(90deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.5);
+    opacity: 0.3;
+  }
+  75% {
+    transform: rotate(270deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) scale(0.5);
+    opacity: 0.3;
+  }
+}
+
+@keyframes letterGlow {
+  0%,
+  100% {
+    opacity: 0.2;
+    filter: blur(0);
+    transform: scale(0.8);
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0.5px);
+    transform: scale(1.5);
+    text-shadow:
+      0 0 2px currentColor,
+      0 0 6px currentColor;
+  }
+}
+
+@keyframes birdFly {
+  0%,
+  100% {
+    transform: translateY(0) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-30%) rotate(-5deg);
+  }
+}
+
+@keyframes wingFlap {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+}
+
+@keyframes trailFade {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+@keyframes dot-fade {
+  0%,
+  80%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+:global(.animate-dot-fade) {
+  animation: dot-fade 1.4s infinite ease-in-out both;
+}

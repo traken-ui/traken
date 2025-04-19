@@ -16,11 +16,15 @@ const meta: Meta<typeof Calendar> = {
     },
     color: {
       control: { type: "select" },
-      options: ["default", "primary", "secondary"],
+      options: ["light", "dark"],
     },
     size: {
       control: { type: "select" },
-      options: ["sm", "md", "lg"],
+      options: ["sm", "md", "lg", "xl", "2xl", "full"],
+    },
+    shadow: {
+      control: { type: "select" },
+      options: ["sm", "md", "lg", "xl", "none"],
     },
     disablePast: { control: "boolean" },
     disableFuture: { control: "boolean" },
@@ -43,8 +47,9 @@ export const Default: Story = {
   },
   args: {
     variant: "default",
-    color: "default",
+    color: "dark",
     size: "md",
+    shadow: "md",
     disablePast: false,
     disableFuture: false,
   },
@@ -126,7 +131,9 @@ export const PrimaryColor: Story = {
     );
   },
   args: {
-    color: "primary",
+    color: "dark",
+    size: "md",
+    shadow: "md",
   },
 };
 
@@ -142,7 +149,9 @@ export const SecondaryColor: Story = {
     );
   },
   args: {
-    color: "secondary",
+    color: "dark",
+    size: "md",
+    shadow: "md",
   },
 };
 
@@ -158,7 +167,9 @@ export const SmallSize: Story = {
     );
   },
   args: {
+    color: "dark",
     size: "sm",
+    shadow: "sm",
   },
 };
 
@@ -174,6 +185,8 @@ export const LargeSize: Story = {
     );
   },
   args: {
+    color: "dark",
     size: "lg",
+    shadow: "lg",
   },
 };
