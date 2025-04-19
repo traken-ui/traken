@@ -11,8 +11,7 @@ interface CalendarProps {
   disableFuture?: boolean;
   className?: string;
   variant?: "default" | "month-year-picker" | "range-picker";
-  color?: "default" | "primary" | "secondary"| "success" | "warning" | "danger";
-  size?: "sm" | "md" | "lg";
+  color?: "light" | "dark";
 }
 
 const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
@@ -24,8 +23,7 @@ export const Calendar: React.FC<CalendarProps> = ({
   disableFuture = false,
   className = "",
   variant = "default",
-  color = "default",
-  size = "md",
+  color = "light",
 }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [range, setRange] = useState<[Date | null, Date | null]>([null, null]);
@@ -76,7 +74,7 @@ export const Calendar: React.FC<CalendarProps> = ({
   };
 
   return (
-    <div className={cn(calendarVariants({ color, size, className }))}>
+    <div className={cn(calendarVariants({ color, className }))}>
       <CalendarHeader
         currentMonth={currentMonth}
         variant={variant}
@@ -90,7 +88,7 @@ export const Calendar: React.FC<CalendarProps> = ({
 
       <div className="grid grid-cols-7 gap-1 text-center text-sm mb-2">
         {daysOfWeek.map((day, index) => (
-          <div key={`${day}-${index}`} className="font-bold text-base-50 text-default-400 py-1 flex justify-center">
+          <div key={`${day}-${index}`} className="font-bold text-gray-400 text-default-400 py-1 flex justify-center">
             <div className="w-9">{day}</div>
           </div>
         ))}
