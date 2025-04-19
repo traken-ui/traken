@@ -11,7 +11,7 @@ import { Accordion, AccordionItem } from './components/accordion/Accordion';
 import Divider from './components/divider/Divider';
 import Loader from './components/loader/Loader';
 import ToggleSwitch from './components/switch/Switch';
-import { Tabs } from './components/tabs/Tabs';
+import { Tabs,Tab } from './components/tabs/Tabs';
 import Tooltip from './components/tooltip/Tooltip';
 import Alert from './components/alert/Alert';
 import Badge from './components/badge/badge'
@@ -41,6 +41,7 @@ export {
     Loader,
     ToggleSwitch,
     Tabs,
+    Tab,
     Tooltip,
     Alert,
     Badge
