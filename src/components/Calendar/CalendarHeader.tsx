@@ -15,6 +15,7 @@ interface CalendarHeaderProps {
   onNextMonth: () => void;
   onToday: () => void;
   todayClicked?: boolean;
+  color?: "light" | "dark";
 }
 
 export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
@@ -25,6 +26,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   onPrevMonth,
   onNextMonth,
   onToday,
+  color = "dark",
 }) => {
   const [isMonthOpen, setIsMonthOpen] = useState(false)
   const [isYearOpen, setIsYearOpen] = useState(false)
@@ -57,14 +59,14 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   }, []);
 
   return (
-  <div className={calendarHeaderVariants({ variant: variant === "range-picker" ? "default" : variant })}>
+  <div className={calendarHeaderVariants({ variant: variant === "range-picker" ? "default" : variant,color })}>
     <Button
       onClick={handleTodayClick}
-      className={cn( 
-        "px-3 py-1.5 bg-gray-700 text-white border border-gray-600 rounded-lg hover:bg-gray-600 ",
-        // {    custom styling if needed
-        //   "ring-2 ring-primary-400": todayClicked,
-        // }
+      className={cn(
+        "px-3 py-1.5 border rounded-lg",
+        color === "dark" 
+          ? "bg-gray-700 text-white border-gray-600 hover:bg-gray-600" 
+          : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300"
       )}
     >
       Today
@@ -78,6 +80,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
           onChange={onMonthChange} 
           open={isMonthOpen}
           onOpenChange={setIsMonthOpen}
+          color={color}
         />
         </div>
         <div ref={yearPickerRef}>
@@ -86,6 +89,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
           onChange={onYearChange} 
           open={isYearOpen}
           onOpenChange={setIsYearOpen}
+          color={color}
         />
         </div>
       </div>
@@ -97,6 +101,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     <NavigationButtons
       onPrevMonth={onPrevMonth}
       onNextMonth={onNextMonth}
+      color={color}
     />
   </>
     )}

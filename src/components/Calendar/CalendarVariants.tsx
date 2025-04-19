@@ -18,10 +18,15 @@ export const calendarHeaderVariants = cva("flex justify-between items-center mb-
     variant: {
       default: "gap-4",
       "month-year-picker": "gap-2 flex-wrap"
+    },
+    color: {
+      light: "text-gray-900",
+      dark: "text-gray-100"
     }
   },
   defaultVariants: {
-    variant: "default"
+    variant: "default",
+    color: "dark"
   }
 });
 

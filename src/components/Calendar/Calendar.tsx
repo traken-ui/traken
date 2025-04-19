@@ -84,6 +84,7 @@ export const Calendar: React.FC<CalendarProps> = ({
         onNextMonth={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))}
         onToday={handleTodayClick}
         todayClicked={todayClicked}  
+        color={color}
       />
 
       <div className="grid grid-cols-7 gap-1 text-center text-sm mb-2">
