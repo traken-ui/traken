@@ -1,11 +1,11 @@
 import React from "react";
-
-export const LeftArrowIcon: React.FC = () => (
+import {cn} from '../../lib/utils'
+export const LeftArrowIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
+    className={cn("h-5 w-5", className)}
     viewBox="0 0 20 20"
-    fill="currentColor"
+    fill="currentColor" // This makes it inherit text color
   >
     <path
       fillRule="evenodd"
@@ -15,12 +15,12 @@ export const LeftArrowIcon: React.FC = () => (
   </svg>
 );
 
-export const RightArrowIcon: React.FC = () => (
+export const RightArrowIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
+    className={cn("h-5 w-5", className)}
     viewBox="0 0 20 20"
-    fill="currentColor"
+    fill="currentColor" // This makes it inherit text color
   >
     <path
       fillRule="evenodd"
@@ -32,11 +32,16 @@ export const RightArrowIcon: React.FC = () => (
 
 interface DropdownIconProps {
   open: boolean;
+  color?: "light" | "dark";
 }
 
-export const DropdownIcon: React.FC<DropdownIconProps> = ({ open }) => (
+export const DropdownIcon: React.FC<DropdownIconProps> = ({ open, color = "dark" }) => (
   <svg
-    className={`w-5 h-5 text-base-400 transition-transform ${open ? "rotate-180" : ""}`}
+    className={cn(
+      "w-5 h-5 transition-transform",
+      open ? "rotate-180" : "",
+      color === "dark" ? "text-base-400" : "text-gray-500"
+    )}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 20 20"
     fill="currentColor"

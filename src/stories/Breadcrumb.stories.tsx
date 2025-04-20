@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Breadcrumb } from '../components/Breadcrumbs/Breadcrumb';
-import { HomeIcon, ChevronRightIcon, SlashIcon } from '../components/Breadcrumbs/icons'; 
+import { HomeIcon, ChevronRightIcon } from '../components/Breadcrumbs/icons'; 
 
 const meta: Meta<typeof Breadcrumb> = {
   title: 'Components/Breadcrumb',
@@ -55,6 +55,21 @@ const longPathItems = [
   { label: 'Acme Corp', isCurrent: true },
 ];
 
+const longPathItemsWithDropdown = [
+  { label: 'Home', href: '/' },
+  { label: 'Library', href: '/library' },
+  { label: 'Documents', href: '/library/docs' },
+  { label: 'Projects', href: '/library/docs/projects' },
+  { 
+    label: 'More', 
+    isDropdown: true, 
+    dropdownItems: [
+      { label: 'Client Work', href: '/library/docs/projects/clients' },
+      { label: 'Acme Corp', isCurrent: true },
+    ],
+  },
+];
+
 // --- Stories ---
 
 export const Default: Story = {
@@ -90,35 +105,13 @@ export const WithCustomSeparator: Story = {
   name: 'Custom Separator (Icon)',
 };
 
-export const Truncated: Story = {
+export const TruncatedWithDropdown: Story = {
   args: {
-    items: longPathItems,
+    items: longPathItemsWithDropdown,
     separator: '→',
     maxItems: 4,
     collapseAfter: 1,
+    variant: 'dropdown',
   },
-  name: 'Truncated with Ellipsis',
-};
-
-export const InteractiveExpand: Story = {
-  args: {
-    items: longPathItems,
-    maxItems: 4,
-    collapseAfter: 1,
-  },
-  render: (args) => {
-    const [expanded, setExpanded] = React.useState(false);
-    return (
-      <div>
-        <button 
-          onClick={() => setExpanded(!expanded)}
-          className="mb-4 text-sm text-blue-600 hover:underline"
-        >
-          {expanded ? 'Collapse' : 'Expand'} Breadcrumb
-        </button>
-        <Breadcrumb {...args} />
-      </div>
-    );
-  },
-  name: 'Expandable (Interactive)',
+  name: 'Truncated with Dropdown',
 };

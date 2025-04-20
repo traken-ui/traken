@@ -1,19 +1,27 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { DropdownIcon } from "./icons";
-
+import {cn} from '../../lib/utils'
 interface YearPickerProps {
   year: number;
   onChange: (year: number) => void;
   open:boolean,
   onOpenChange:(open:boolean)=>void
+  color?: "light" | "dark";
 }
 
 export const YearPicker: React.FC<YearPickerProps> = ({ 
     year,
     onChange,
     open,
-    onOpenChange 
+    onOpenChange,
+    color = "dark",
 }) => {
+  const bgColor = color === "dark" ? "bg-base-600" : "bg-gray-100";
+  const borderColor = color === "dark" ? "border-base-500" : "border-gray-300";
+  const textColor = color === "dark" ? "text-white" : "text-gray-800";
+  const hoverBg = color === "dark" ? "hover:bg-base-400" : "hover:bg-gray-200";
+  const activeBg = color === "dark" ? "bg-base-700" : "bg-gray-300";
+
   const startYear = 1975; 
   const years = Array.from({ length: 101 }, (_, i) => startYear + i); // Range: 1975-2075
   const dropdownRef = useRef<HTMLDivElement>(null); 
@@ -32,23 +40,35 @@ export const YearPicker: React.FC<YearPickerProps> = ({
   return (
     <div className="relative w-24">
       <div
-        className="flex items-center justify-between p-2 bg-base-600 border border-base-500 rounded-lg cursor-pointer"
+        className={cn(
+          "flex items-center justify-between p-2 border rounded-lg cursor-pointer",
+          bgColor,
+          borderColor,
+          textColor
+        )}        
         onClick={() => onOpenChange(!open)}
       >
-        <span className="text-white">{year}</span>
-        <DropdownIcon open={open}/>
+        <span>{year}</span>
+        <DropdownIcon open={open} color={color}/>
       </div>
       {open && (
         <div
           ref={dropdownRef}
-          className="absolute z-10 w-full mt-1 bg-base-600 border border-base-500  rounded-lg shadow-lg max-h-60 overflow-auto scrollbar-hide"
+          className={cn(
+            "absolute z-10 w-full mt-1 border rounded-lg shadow-lg max-h-60 overflow-auto scrollbar-hide",
+            bgColor,
+            borderColor
+          )}  
         >
           {years.map((yearOption) => (
             <div
               key={yearOption}
-              className={`p-2 text-white cursor-pointer hover:bg-base-400 ${
-                year === yearOption ? "bg-base-700" : ""
-              }`}
+              className={cn(
+                "p-2 cursor-pointer",
+                textColor,
+                hoverBg,
+                year === yearOption ? activeBg : ""
+              )}
               onClick={() => {
                 onChange(yearOption);
                 onOpenChange(false);

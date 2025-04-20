@@ -16,11 +16,7 @@ const meta: Meta<typeof Calendar> = {
     },
     color: {
       control: { type: "select" },
-      options: ["default", "primary", "secondary", "success", "warning", "danger"],
-    },
-    size: {
-      control: { type: "select" },
-      options: ["sm", "md", "lg"],
+      options: ["light", "dark"],
     },
     disablePast: { control: "boolean" },
     disableFuture: { control: "boolean" },
@@ -43,8 +39,7 @@ export const Default: Story = {
   },
   args: {
     variant: "default",
-    color: "default",
-    size: "md",
+    color: "light",
     disablePast: false,
     disableFuture: false,
   },
@@ -113,67 +108,3 @@ export const DisableFutureDates: Story = {
     disableFuture: true,
   },
 };
-
-// export const PrimaryColor: Story = {
-//   render: (args) => {
-//     const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-//     return (
-//       <Calendar
-//         {...args}
-//         selectedDates={selectedDates}
-//         onDateSelect={(date) => setSelectedDates([date])}
-//       />
-//     );
-//   },
-//   args: {
-//     color: "primary",
-//   },
-// };
-
-// export const SecondaryColor: Story = {
-//   render: (args) => {
-//     const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-//     return (
-//       <Calendar
-//         {...args}
-//         selectedDates={selectedDates}
-//         onDateSelect={(date) => setSelectedDates([date])}
-//       />
-//     );
-//   },
-//   args: {
-//     color: "secondary",
-//   },
-// };
-
-// export const SmallSize: Story = {
-//   render: (args) => {
-//     const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-//     return (
-//       <Calendar
-//         {...args}
-//         selectedDates={selectedDates}
-//         onDateSelect={(date) => setSelectedDates([date])}
-//       />
-//     );
-//   },
-//   args: {
-//     size: "sm",
-//   },
-// };
-
-// export const LargeSize: Story = {
-//   render: (args) => {
-//     const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-//     return (
-//       <Calendar
-//         {...args}
-//         selectedDates={selectedDates}
-//         onDateSelect={(date) => setSelectedDates([date])}
-//       />
-//     );
-//   },
-//   args: {
-//     size: "lg",
-//   },
-// };

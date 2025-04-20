@@ -3,22 +3,13 @@ import { cva } from "class-variance-authority";
 export const calendarVariants = cva("w-full max-w-md text-black p-4 rounded-lg shadow-lg", {
   variants: {
     color: {
-      default: "bg-base",
-      primary: "bg-primary",
-      secondary: "bg-secondary",
-      success: 'bg-success ',
-      warning: 'bg-warning ',
-      danger: 'bg-danger ',
+      light: "bg-white text-gray-900",
+      dark: "bg-black text-gray-100",
     },
-    size: {
-      sm: "text-sm",
-      md: "text-base",
-      lg: "text-lg"
-    }
+    
   },
   defaultVariants: {
-    color: "default",
-    size: "md"
+    color: "dark",
   }
 });
 
@@ -27,10 +18,15 @@ export const calendarHeaderVariants = cva("flex justify-between items-center mb-
     variant: {
       default: "gap-4",
       "month-year-picker": "gap-2 flex-wrap"
+    },
+    color: {
+      light: "text-gray-900",
+      dark: "text-gray-100"
     }
   },
   defaultVariants: {
-    variant: "default"
+    variant: "default",
+    color: "dark"
   }
 });
 

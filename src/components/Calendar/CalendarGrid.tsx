@@ -96,7 +96,7 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
         const isTodayHighlighted = isToday && selectedDates.length === 0; // Highlight today if no date is selected
         
         return (
-        <div key={day} className="flex justify-center text-white ">
+        <div key={day} className="flex justify-center">
           <button
             key={day}
             className={cn(
