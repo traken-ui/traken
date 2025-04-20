@@ -4,9 +4,9 @@ export const accordionVariants = cva("space-y-2", {
   variants: {
     variant: {
       light:
-        "bg-gray-900 text-white border border-gray-700 shadow-sm transition-all duration-300 ease-in-out hover:shadow-md",
+        "bg-gray-900 text-white  border-gray-700 shadow-sm transition-all duration-300 ease-in-out hover:shadow-md",
       shadow:
-        "bg-black text-white shadow-lg border border-gray-700 transition-all duration-300 ease-in-out hover:shadow-xl",
+        "bg-black text-white shadow-lg  border-gray-700 transition-all duration-300 ease-in-out hover:shadow-xl",
       bordered:
         "border border-gray-600 bg-gray-800 text-white transition-all duration-300 ease-in-out hover:border-gray-500",
       splitted:

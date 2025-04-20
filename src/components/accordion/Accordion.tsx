@@ -11,7 +11,6 @@ interface AccordionProps extends VariantProps<typeof accordionVariants> {
   onActiveItemsChange?: (activeItems: string[]) => void;
 }
 
-
 interface AccordionItemProps {
   id: string;
   title: string;
@@ -73,7 +72,7 @@ const AccordionItemComponent: React.FC<AccordionItemProps> = ({
     >
       <button
         onClick={handleToggle}
-        className="flex w-full items-center justify-between py-2 font-medium"
+        className="flex w-full items-center justify-between font-medium"
         aria-expanded={!!isOpen}
         disabled={disabled}
       >
@@ -88,7 +87,7 @@ const AccordionItemComponent: React.FC<AccordionItemProps> = ({
           isOpen ? "min-h-fit" : "max-h-0"
         }`}
       >
-        <p className="pt-2 text-sm text-gray-300">{description}</p>
+        <p className="text-sm text-gray-300">{description}</p>
       </div>
     </div>
   );
