@@ -60,7 +60,9 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
                     href: dropdownItem.href
                   }))}
                 />
-                {!item.isLast && <span className="mx-1 text-gray-400">{separator}</span>}
+                {index !== visibleItems.length - 1 && (
+                  <span className="mx-1 text-gray-400">{separator}</span>
+                )}
               </li>
             ) : (
               <BreadcrumbItem

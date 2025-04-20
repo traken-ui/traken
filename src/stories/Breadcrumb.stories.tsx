@@ -105,25 +105,6 @@ export const WithCustomSeparator: Story = {
   name: 'Custom Separator (Icon)',
 };
 
-export const Truncated: Story = {
-  args: {
-    items: longPathItems,
-    separator: '→',
-    maxItems: 4,
-    collapseAfter: 1,
-  },
-  name: 'Truncated with Ellipsis',
-};
-
-export const InteractiveExpand: Story = {
-  args: {
-    items: longPathItems,
-    maxItems: 4,
-    collapseAfter: 1,
-  },
-  name: 'Expandable (Interactive)',
-};
-
 export const TruncatedWithDropdown: Story = {
   args: {
     items: longPathItemsWithDropdown,
@@ -133,14 +114,4 @@ export const TruncatedWithDropdown: Story = {
     variant: 'dropdown',
   },
   name: 'Truncated with Dropdown',
-};
-
-export const ExpandableInteractive: Story = {
-  args: {
-    items: longPathItems,
-    maxItems: 4,
-    collapseAfter: 1,
-    variant: 'expand',
-  },
-  name: 'Expandable (Interactive)',
 };
