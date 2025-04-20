@@ -12,18 +12,8 @@ interface TabsContextType {
   color: "default" | "primary" | "secondary" | "success" | "warning" | "danger";
   size: "sm" | "md" | "lg";
   radius: "none" | "sm" | "md" | "lg" | "full";
-  classNames?: Partial<
-    Record<
-      | "base"
-      | "tabList"
-      | "tab"
-      | "tabContent"
-      | "cursor"
-      | "panel"
-      | "tabWrapper",
-      string
-    >
-  >;
+  className?: string;
+  backgroundColor?: string;
 }
 
 const TabsContext = createContext<TabsContextType | undefined>(undefined);
@@ -74,20 +64,10 @@ export interface TabsProps {
   isDisabled?: boolean;
   destroyInactiveTabPanel?: boolean;
   isVertical?: boolean;
-  classNames?: Partial<
-    Record<
-      | "base"
-      | "tabList"
-      | "tab"
-      | "tabContent"
-      | "cursor"
-      | "panel"
-      | "tabWrapper",
-      string
-    >
-  >;
+  className?: string;
   children: ReactNode;
   onChange?: (key: React.Key) => void;
+  backgroundColor?: string;
 }
 
 export const Tabs: React.FC<TabsProps> = ({
@@ -100,10 +80,11 @@ export const Tabs: React.FC<TabsProps> = ({
   defaultSelectedKey,
   isDisabled = false,
   destroyInactiveTabPanel = false,
-  classNames,
+  className,
   isVertical = false,
   children,
   onChange,
+  backgroundColor = "bg-slate-400",
 }) => {
   const tabElements = React.Children.toArray(children).filter(
     (child) => React.isValidElement(child) && child.type === Tab,
@@ -150,18 +131,19 @@ export const Tabs: React.FC<TabsProps> = ({
     color,
     size,
     radius,
-    classNames,
+    className,
   };
 
   return (
     <TabsContext.Provider value={contextValue}>
-      <div className={cn("w-full p-4", classNames?.base)}>
+      <div className={cn("w-full p-4", className)}>
         <div
           className={cn(
             "flex w-fit gap-1 rounded p-1",
-            variant !== "underlined" && "bg-slate-300",
+            variant !== "underlined" && backgroundColor,
             isVertical ? "flex-col" : "flex-row",
-            classNames?.tabList,
+            className,
+            backgroundColor,
           )}
         >
           {tabsWithKeys.map((tab) => {
@@ -188,10 +170,10 @@ export const Tabs: React.FC<TabsProps> = ({
                   variant === "light" &&
                     activeKey === tab.props.tabKey &&
                     getLightBgColor(color),
-                  classNames?.tab,
+                  className,
                 )}
               >
-                <span className={classNames?.tabContent}>
+                <span className={className}>
                   {tab.props.title || tab.props.children}
                 </span>
               </button>
@@ -199,7 +181,7 @@ export const Tabs: React.FC<TabsProps> = ({
           })}
         </div>
 
-        <div className={cn("mt-4", classNames?.panel)}>
+        <div className={cn("mt-4", className)}>
           {tabsWithKeys.map((tab) => {
             const isActive = tab.props.tabKey === activeKey;
             if (!isActive && destroyInactiveTabPanel) return null;
