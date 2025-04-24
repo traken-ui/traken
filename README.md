@@ -72,11 +72,22 @@ If you encounter any issues or have questions, feel free to:
 
 - Open an issue on [GitHub](https://github.com/your-repo/traken-ui)
 - Reach out to us via [email@example.com](mailto:email@example.com)
+ 
+ ---
 
-## License
+## 🛡 License
 
-Traken UI is licensed under the [MIT License](LICENSE).
+⚠️ This project is *source-available*, not open source. 
+Free components (in `/core`) are available under limited terms for non-commercial use.
+
+Paid components (in `/pro`) require a valid commercial license.
+
+🔐 [Read the full LICENSE](./LICENSE.md)  
+🌐 Visit us: [https://ui.traken.com](https://ui.traken.com)  
+📩 Contact: [trakenui@gmail.com](mailto:trakenui@gmail.com)
 
 ---
+
+
 
 Happy coding with Traken UI!
